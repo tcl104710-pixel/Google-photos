@@ -1,0 +1,90 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "photo-retrieval-mvp"
+version = "0.1.0"
+description = "AI-native photo retrieval using incomplete or vague memories"
+requires-python = ">=3.11"
+dependencies = [
+    # Web framework
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.29.0",
+    "python-multipart>=0.0.9",
+
+    # Data validation
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.2.0",
+
+    # Database
+    "asyncpg>=0.29.0",
+    "sqlalchemy[asyncio]>=2.0.29",
+    "alembic>=1.13.1",
+
+    # Redis (session state)
+    "redis[hiredis]>=5.0.4",
+
+    # Google Photos OAuth + API
+    "google-auth>=2.29.0",
+    "google-auth-oauthlib>=1.2.0",
+    "google-auth-httplib2>=0.2.0",
+    "httpx>=0.27.0",
+
+    # LLM — Groq
+    "groq>=0.9.0",
+
+    # Embeddings — BGE-M3 + BGE-Visualized
+    "FlagEmbedding>=1.2.11",
+    "torch>=2.3.0",
+    "transformers>=4.41.0",
+    "Pillow>=10.3.0",
+
+    # Vector search
+    "faiss-cpu>=1.8.0",
+    "numpy>=1.26.0",
+
+    # Utilities
+    "python-dotenv>=1.0.1",
+    "structlog>=24.1.0",
+    "tenacity>=8.3.0",
+
+    # Scraping
+    "google-play-scraper>=1.2.4",
+    "google-api-python-client>=2.108.0",
+    "praw>=7.7.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.6",
+    "pytest-cov>=5.0.0",
+    "httpx>=0.27.0",
+    "ruff>=0.4.4",
+    "mypy>=1.10.0",
+    "pre-commit>=3.7.1",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "N", "UP", "B", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.isort]
+known-first-party = ["api", "core", "integrations", "models", "llm"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "--cov=. --cov-report=term-missing --cov-report=xml"
+
+[tool.coverage.run]
+omit = ["tests/*", "frontend/*"]

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {"darkMode":"class","theme":{"extend":{"colors":{"inverse-primary":"#adc7ff","error":"#ba1a1a","on-secondary-fixed-variant":"#005320","surface":"#f7f9ff","on-background":"#181c20","surface-container-low":"#f1f4fa","primary-fixed-dim":"#adc7ff","on-tertiary-fixed":"#410001","background":"#f7f9ff","on-secondary":"#ffffff","on-primary":"#ffffff","tertiary-container":"#dc392c","tertiary-fixed":"#ffdad5","surface-bright":"#f7f9ff","on-primary-container":"#ffffff","on-tertiary":"#ffffff","tertiary":"#b81d17","surface-container-high":"#e5e8ee","primary-container":"#1a73e8","secondary-fixed":"#89fa9b","on-secondary-container":"#00722f","secondary-container":"#86f898","on-secondary-fixed":"#002108","secondary-fixed-dim":"#6ddd81","inverse-surface":"#2d3135","on-primary-fixed-variant":"#004493","primary":"#005bbf","secondary":"#006e2c","on-tertiary-fixed-variant":"#930004","tertiary-fixed-dim":"#ffb4a9","on-tertiary-container":"#ffffff","on-surface":"#181c20","surface-variant":"#dfe3e8","surface-dim":"#d7dae0","surface-tint":"#005bc0","on-error-container":"#93000a","inverse-on-surface":"#eef1f7","surface-container-highest":"#dfe3e8","on-error":"#ffffff","surface-container-lowest":"#ffffff","surface-container":"#ebeef4","primary-fixed":"#d8e2ff","error-container":"#ffdad6","outline":"#727785","on-surface-variant":"#414754","outline-variant":"#c1c6d6","on-primary-fixed":"#001a41"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter":"1rem","space-sm":"0.5rem","margin":"1.5rem","space-md":"0.75rem","margin-mobile":"1rem","space-xl":"1.5rem","space-lg":"1rem","gutter-compact":"0.5rem","space-xs":"0.25rem"},"fontFamily":{"code-badge":["JetBrains Mono"],"data-tabular":["JetBrains Mono"],"body-md":["Inter"],"label-md":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"label-sm":["Inter"],"title-md":["Inter"],"headline-lg":["Inter"],"body-sm":["Inter"],"headline-sm":["Inter"]},"fontSize":{"code-badge":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"500"}],"data-tabular":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","letterSpacing":"0.005em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"500"}],"title-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"400"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest flex flex-col justify-between z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="p-space-lg flex items-start gap-space-sm bg-surface-container-lowest"><div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center flex-shrink-0 shadow-[0_1px_2px_rgba(60,64,67,0.12)]"><svg class="w-6 h-6" fill="none" viewbox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7V12H12C14.76 12 17 9.76 17 7C17 4.24 14.76 2 12 2Z" fill="#dc392c"></path><path d="M22 12C22 9.24 19.76 7 17 7H12V12C12 14.76 14.76 17 17 17C19.76 17 22 14.76 22 12Z" fill="#1a73e8"></path><path d="M12 22C14.76 22 17 19.76 17 17V12H12C9.24 12 7 14.76 7 17C7 19.76 9.24 22 12 22Z" fill="#006e2c"></path><path d="M2 12C2 14.76 4.24 17 7 17H12V12C12 9.24 9.24 7 7 7C4.24 7 2 9.24 2 12Z" fill="#dc392c" opacity="0.9"></path></svg></div><div class="flex flex-col min-w-0"><h1 class="font-title-md text-title-md text-on-surface truncate leading-tight">Google Photos Discovery</h1><p class="font-label-sm text-label-sm text-on-surface-variant truncate mt-space-xs">Retrieval Discovery Engine · PM Research</p></div></div><nav class="flex-1 px-space-sm py-space-md space-y-space-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-md text-label-md truncate">Overview</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="research-dataset" href="#"><span class="material-symbols-outlined text-[20px]">dataset</span><span class="font-label-md text-label-md truncate">Research Dataset</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-all bg-primary-container text-on-primary-container font-headline-sm" data-path="user-feedback" href="#"><span class="material-symbols-outlined text-[20px]">rate_review</span><span class="font-label-md text-label-md truncate">User Feedback</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="search-behavior" href="#"><span class="material-symbols-outlined text-[20px]">manage_search</span><span class="font-label-md text-label-md truncate">Search Behavior</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="retrieval-failures" href="#"><span class="material-symbols-outlined text-[20px]">error_outline</span><span class="font-label-md text-label-md truncate">Retrieval Failures</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="evidence-opportunities" href="#"><span class="material-symbols-outlined text-[20px]">lightbulb</span><span class="font-label-md text-label-md truncate">Evidence &amp; Opportunities</span></a></nav></div><div class="p-space-md m-space-sm bg-surface-container-low rounded-xl shadow-[0_1px_2px_rgba(60,64,67,0.12)]"><div class="flex items-center justify-between mb-space-xs"><span class="font-title-md text-title-md text-on-surface">Dataset</span><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant">DEMO DATA</span></div><div class="space-y-space-xs"><div class="flex justify-between items-center"><span class="font-body-sm text-body-sm text-on-surface-variant">Records</span><span class="font-data-tabular text-data-tabular text-on-surface font-medium">1,842</span></div><div class="flex justify-between items-center"><span class="font-body-sm text-body-sm text-on-surface-variant">Sources</span><span class="font-label-sm text-label-sm text-on-surface">5 Public Channels</span></div><div class="flex justify-between items-center"><span class="font-body-sm text-body-sm text-on-surface-variant">Last Updated</span><span class="font-data-tabular text-data-tabular text-on-surface">Oct 24, 2024</span></div></div><div class="mt-space-sm pt-space-xs bg-surface-container-high/40 rounded-lg p-space-xs"><p class="font-body-sm text-[11px] leading-tight text-on-surface-variant">Public feedback research for Photo Retrieval Case Study</p></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-12 bg-surface-container-lowest/90 backdrop-blur-xl z-40 flex items-center justify-between px-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Internal Workspace</span><span class="font-code-badge text-code-badge bg-surface-container px-space-sm py-0.5 rounded text-primary">ENV: PM-RESEARCH</span></div><div class="flex items-center gap-space-lg"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-12 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Content Header Area -->
+<div class="px-6 pt-4 pb-2 space-y-3 bg-surface-container-lowest">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-code-badge text-code-badge text-primary bg-primary-fixed px-space-xs py-0.5 rounded uppercase tracking-wider">PM Discovery Lab</span>
+<span class="text-outline-variant font-data-tabular text-body-sm">/</span>
+<span class="font-code-badge text-code-badge text-on-surface-variant">CORPUS: GP-VERBATIM-v2.4</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Google Photos User Feedback</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+          Deep qualitative evidence explorer for PM inspection across verified retrieval friction cases.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm flex-shrink-0 self-start md:self-auto">
+<div class="flex items-center gap-1.5 px-space-sm py-1 bg-surface-container-high rounded-full">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>
+<span class="font-code-badge text-code-badge text-on-surface font-semibold tracking-wider">DEMO DATA</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="inline-flex items-center gap-1.5 px-space-md py-1.5 rounded bg-surface-container hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors shadow-sm" id="btnExportCSV">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span class="">Export CSV</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-space-md py-1.5 rounded bg-surface-container hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors shadow-sm" id="btnExportJSON">
+<span class="material-symbols-outlined text-[16px]">code</span>
+<span class="">JSON</span>
+</button>
+<button class="inline-flex items-center justify-center w-8 h-8 rounded bg-primary text-on-primary hover:bg-primary-container transition-colors shadow-sm" title="Refresh Corpus">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Search & Filter Bar Section -->
+<div class="mt-space-lg flex flex-col gap-space-sm">
+<!-- Search Input -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full h-10 pl-11 pr-24 rounded bg-surface-container text-on-surface placeholder:text-on-surface-variant font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition-all" id="globalSearchInput" placeholder='Search original verbatim feedback (e.g., "receipt", "sunset", "dog", "hiking", "2021")...' type="text"/>
+<div class="absolute right-space-sm top-1/2 -translate-y-1/2 flex items-center gap-1">
+<kbd class="font-code-badge text-code-badge px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant shadow-sm">⌘K</kbd>
+<kbd class="font-code-badge text-code-badge px-1 py-0.5 rounded bg-surface-container-highest text-on-surface-variant shadow-sm">/</kbd>
+</div>
+</div>
+<!-- Facet Filters Row -->
+<div class="flex flex-wrap items-center gap-space-xs pt-1">
+<!-- Source Filter -->
+<div class="relative group">
+<button class="flex items-center gap-1.5 px-space-md py-1.5 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm">
+<span class="text-on-surface-variant font-normal">Source:</span>
+<span class="font-medium">All Sources (5)</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span>
+</button>
+</div>
+<!-- Retrieval Scenario -->
+<div class="relative group">
+<button class="flex items-center gap-1.5 px-space-md py-1.5 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm">
+<span class="text-on-surface-variant font-normal">Scenario:</span>
+<span class="font-medium">All Scenarios</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span>
+</button>
+</div>
+<!-- Search Method -->
+<div class="relative group">
+<button class="flex items-center gap-1.5 px-space-md py-1.5 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm">
+<span class="text-on-surface-variant font-normal">Method:</span>
+<span class="font-medium">All Methods</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span>
+</button>
+</div>
+<!-- Problem Failure Class -->
+<div class="relative group">
+<button class="flex items-center gap-1.5 px-space-md py-1.5 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm">
+<span class="text-on-surface-variant font-normal">Problem:</span>
+<span class="font-medium">All Failures</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span>
+</button>
+</div>
+<!-- Outcome Filter -->
+<div class="relative group">
+<button class="flex items-center gap-1.5 px-space-md py-1.5 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm">
+<span class="text-on-surface-variant font-normal">Outcome:</span>
+<span class="font-medium">All Outcomes</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_drop_down</span>
+</button>
+</div>
+<button class="ml-auto inline-flex items-center gap-1 text-primary hover:text-primary-container font-label-sm text-label-sm px-space-sm py-1">
+<span class="material-symbols-outlined text-[14px]">filter_alt_off</span>
+<span class="">Reset Filters</span>
+</button>
+</div>
+<!-- Active Filter Strip & Metrics -->
+<div class="flex items-center justify-between pt-1 pb-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mr-1">Inspection Subsample:</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-code-badge text-code-badge">
+            N=5 Deep Samples
+          </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+            Cluster: Temporal &amp; Multi-Entity Friction
+          </span>
+<span class="text-on-surface-variant font-body-sm text-body-sm ml-2">
+            Showing <strong class="text-on-surface font-data-tabular">5</strong> of <strong class="text-on-surface font-data-tabular">1,124</strong> public retrieval reports
+          </span>
+</div>
+<div class="hidden lg:flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded bg-tertiary"></span>
+<span class="">Abandoned (62%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded bg-tertiary-container"></span>
+<span class="">Not Found (24%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded bg-secondary"></span>
+<span class="">Partially Found (14%)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Workspace: Split Table + Fixed Slide-over Inspector -->
+<div class="flex-1 flex flex-col 2xl:flex-row min-w-0 bg-surface px-6 py-4 pb-8 w-full gap-6 overflow-x-hidden">
+<!-- Left Column: The Research Data Workbench (Full room ~68-72%) -->
+<div class="flex-1 min-w-0 overflow-hidden">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-surface-container overflow-hidden">
+<!-- Table Control Strip -->
+<div class="px-4 py-3 bg-surface-container-low border-b border-surface-container flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-space-sm">
+<span class="font-title-md text-title-md text-on-surface">Inspection Cohort</span>
+<span class="font-code-badge text-code-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">SAMPLE_ID: RET_QUAL_24Q3</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">touch_app</span>
+<span class="">Click any record to inspect full query diagnostics</span>
+</div>
+</div>
+<!-- Table Viewport with clearly apportioned columns -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse table-auto">
+<thead>
+<tr class="bg-surface-container/60 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider h-10 border-b border-surface-container">
+<th class="py-2.5 px-4 font-semibold w-[110px] min-w-[110px]">Source</th>
+<th class="py-2.5 px-4 font-semibold min-w-[280px]">User Feedback</th>
+<th class="py-2.5 px-4 font-semibold w-[190px] min-w-[180px]">What They Looked For</th>
+<th class="py-2.5 px-4 font-semibold w-[170px] min-w-[160px]">Search Attempt</th>
+<th class="py-2.5 px-4 font-semibold w-[170px] min-w-[160px]">Retrieval Problem</th>
+<th class="py-2.5 px-4 font-semibold w-[120px] min-w-[110px] text-right">Outcome</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container text-on-surface" id="feedbackTableBody">
+<!-- ROW 1 (Default Selected) -->
+<tr class="feedback-row cursor-pointer bg-primary-fixed/20 hover:bg-primary-fixed/30 transition-colors" data-record-id="GP-RET-0981">
+<td class="px-4 py-3 align-top w-[110px]">
+<div class="flex flex-col gap-1 items-start">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">forum</span> Reddit
+</span>
+<span class="font-code-badge text-[10px] text-on-surface-variant mt-0.5">r/googlephotos</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top min-w-[280px]">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+"I tried searching <mark class="bg-primary-fixed px-1 rounded text-on-primary-fixed font-medium">‘red jacket yellow tent camping 2022’</mark> because I vividly remember the weekend with Mark, but Google Photos just gave me 400 random red jackets and zero tents from that trip."
+</p>
+<div class="flex items-center gap-2 mt-2 text-on-surface-variant font-body-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 3 days ago · Thread #18x_camp
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[190px]">
+<div class="font-body-md text-body-md text-on-surface font-semibold leading-snug">
+Specific camping trip photo from Oregon in 2022
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+Anchor: Personal memory of clothing + tent combo
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[170px]">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container font-code-badge text-[11px] text-primary font-medium border border-surface-container-high max-w-full truncate" title="red jacket yellow tent camping 2022">
+<span class="material-symbols-outlined text-[13px] text-primary shrink-0">search</span>
+<span class="truncate">red jacket yellow...</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[170px]">
+<div class="inline-block px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium">
+Multi-entity conjunction
+</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant mt-1 leading-snug">
+Greedy single-token match on 'red jacket'
+</div>
+</td>
+<td class="px-4 py-3 align-top text-right w-[120px]">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">cancel</span> Abandoned
+</span>
+<div class="font-data-tabular text-[11px] text-on-surface-variant mt-1.5">
+15m manual scroll
+</div>
+</td>
+</tr>
+<!-- ROW 2 -->
+<tr class="feedback-row cursor-pointer bg-surface-container-lowest hover:bg-surface-container-low transition-colors" data-record-id="GP-RET-1044">
+<td class="px-4 py-3 align-top w-[110px]">
+<div class="flex flex-col gap-1 items-start">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">groups</span> GP Comm
+</span>
+<span class="font-code-badge text-[10px] text-on-surface-variant mt-0.5">Issue #84920</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top min-w-[280px]">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+"Looking for a photo of the car insurance pink slip I took a picture of last year in my glovebox. Search 'pink slip' or 'car insurance' brings up random pink flowers and nothing from documents."
+</p>
+<div class="flex items-center gap-2 mt-2 text-on-surface-variant font-body-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 1 week ago · Gold Expert Replied
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[190px]">
+<div class="font-body-md text-body-md text-on-surface font-semibold leading-snug">
+Car insurance pink slip in glovebox
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+Urgent task for DMV counter renewal
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[170px]">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container font-code-badge text-[11px] text-on-surface font-medium border border-surface-container-high max-w-full truncate" title="pink slip car insurance">
+<span class="material-symbols-outlined text-[13px] text-on-surface-variant shrink-0">search</span>
+<span class="truncate">pink slip car insurance</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[170px]">
+<div class="inline-block px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium">
+OCR chromatic bias
+</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant mt-1 leading-snug">
+Pink chroma hijacked OCR text recognition
+</div>
+</td>
+<td class="px-4 py-3 align-top text-right w-[120px]">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-error text-on-error font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">block</span> Not Found
+</span>
+<div class="font-data-tabular text-[11px] text-on-surface-variant mt-1.5">
+0 doc recall
+</div>
+</td>
+</tr>
+<!-- ROW 3 -->
+<tr class="feedback-row cursor-pointer bg-surface-container-lowest hover:bg-surface-container-low transition-colors" data-record-id="GP-RET-1102">
+<td class="px-4 py-3 align-top w-[110px]">
+<div class="flex flex-col gap-1 items-start">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">play_arrow</span> Play Store
+</span>
+<span class="font-code-badge text-[10px] text-on-surface-variant mt-0.5">Review 1-Star</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top min-w-[280px]">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+"Search used to be magical, now if I type 'Mom at the Italian restaurant with the checkered tablecloth' it tells me no results. I literally spent 20 minutes scrolling backward to June 2021."
+</p>
+<div class="flex items-center gap-2 mt-2 text-on-surface-variant font-body-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">schedule</span> Oct 12, 2024 · v6.94
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[190px]">
+<div class="font-body-md text-body-md text-on-surface font-semibold leading-snug">
+Family dinner at Italian restaurant
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+Slideshow project (June 2021 event)
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[170px]">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container font-code-badge text-[11px] text-on-surface font-medium border border-surface-container-high max-w-full truncate" title="Mom Italian restaurant checkered tablecloth">
+<span class="material-symbols-outlined text-[13px] text-on-surface-variant shrink-0">search</span>
+<span class="truncate">Mom Italian restaurant...</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[170px]">
+<div class="inline-block px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium">
+Over-constrained query
+</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant mt-1 leading-snug">
+Tablecloth phrase caused zero-recall
+</div>
+</td>
+<td class="px-4 py-3 align-top text-right w-[120px]">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">history</span> Scroll
+</span>
+<div class="font-data-tabular text-[11px] text-on-surface-variant mt-1.5">
+20m manual hunt
+</div>
+</td>
+</tr>
+<!-- ROW 4 -->
+<tr class="feedback-row cursor-pointer bg-surface-container-lowest hover:bg-surface-container-low transition-colors" data-record-id="GP-RET-1250">
+<td class="px-4 py-3 align-top w-[110px]">
+<div class="flex flex-col gap-1 items-start">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-error-container text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">smart_display</span> YouTube
+</span>
+<span class="font-code-badge text-[10px] text-on-surface-variant mt-0.5">Ask Photos Keynote</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top min-w-[280px]">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+"Ask Photos keynote promised conversational queries, but typing 'that drawing my daughter made of our cat on blue construction paper' just gave me actual photos of cats."
+</p>
+<div class="flex items-center gap-2 mt-2 text-on-surface-variant font-body-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 2 weeks ago · 89 Upvotes
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[190px]">
+<div class="font-body-md text-body-md text-on-surface font-semibold leading-snug">
+Child's cat artwork drawing on paper
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+Handmade crayon craft vs real pet
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[170px]">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container font-code-badge text-[11px] text-on-surface font-medium border border-surface-container-high max-w-full truncate" title="daughter drawing cat blue paper">
+<span class="material-symbols-outlined text-[13px] text-on-surface-variant shrink-0">search</span>
+<span class="truncate">daughter drawing cat...</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[170px]">
+<div class="inline-block px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium">
+Modality confusion
+</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant mt-1 leading-snug">
+Retrieved live cats over artwork crafts
+</div>
+</td>
+<td class="px-4 py-3 align-top text-right w-[120px]">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">tune</span> Browse
+</span>
+<div class="font-data-tabular text-[11px] text-on-surface-variant mt-1.5">
+Found via album
+</div>
+</td>
+</tr>
+<!-- ROW 5 -->
+<tr class="feedback-row cursor-pointer bg-surface-container-lowest hover:bg-surface-container-low transition-colors" data-record-id="GP-RET-1399">
+<td class="px-4 py-3 align-top w-[110px]">
+<div class="flex flex-col gap-1 items-start">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">phone_iphone</span> App Store
+</span>
+<span class="font-code-badge text-[10px] text-on-surface-variant mt-0.5">iOS v6.88</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top min-w-[280px]">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+"Searched for 'hiking shoes receipt REI' from two months ago to do a warranty return. Photos showed pictures of my boots from 3 years ago and didn't find the receipt photo."
+</p>
+<div class="flex items-center gap-2 mt-2 text-on-surface-variant font-body-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 1 month ago · iOS Review
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[190px]">
+<div class="font-body-md text-body-md text-on-surface font-semibold leading-snug">
+Physical store receipt for warranty claim
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+Urgent exchange (~60-day limit)
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[170px]">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container font-code-badge text-[11px] text-on-surface font-medium border border-surface-container-high max-w-full truncate" title="hiking shoes receipt REI">
+<span class="material-symbols-outlined text-[13px] text-on-surface-variant shrink-0">search</span>
+<span class="truncate">hiking shoes receipt REI</span>
+</div>
+</td>
+<td class="px-4 py-3 align-top w-[170px]">
+<div class="inline-block px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium">
+Visual vs OCR bias
+</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant mt-1 leading-snug">
+Boots visual tag drowned document text
+</div>
+</td>
+<td class="px-4 py-3 align-top text-right w-[120px]">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-error text-on-error font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[13px]">block</span> Not Found
+</span>
+<div class="font-data-tabular text-[11px] text-on-surface-variant mt-1.5">
+Returned 3yo boots
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination and PM Meta -->
+<div class="px-4 py-3 bg-surface-container-lowest border-t border-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span class="">Showing 1-5 of 1,124 records</span>
+<div class="h-3 w-px bg-surface-container-high"></div>
+<span class="">Confidence Threshold: <strong class="font-data-tabular text-on-surface">&gt;0.88 Grounded</strong></span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high transition-colors disabled:opacity-40" disabled="">
+              Previous
+            </button>
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm">1</button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high">2</button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high">3</button>
+<span class="px-1 text-on-surface-variant font-data-tabular">...</span>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high">225</button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">
+              Next
+            </button>
+</div>
+</div>
+</div>
+<!-- Quick Analysis Callout Bento below table -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-5">
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Semantic Gap Distribution</span>
+<span class="material-symbols-outlined text-primary text-[18px]">query_stats</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Multi-entity temporal compound queries have a <strong class="text-tertiary font-semibold">78.4% abandon rate</strong> across our qualitative sample.
+          </p>
+<div class="mt-3 pt-2.5 border-t border-surface-container flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Primary driver:</span>
+<span class="font-code-badge text-code-badge text-primary bg-primary-fixed/40 px-1.5 py-0.5 rounded">Dropped Time Token</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Document OCR vs Object Gap</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">receipt_long</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Color names ("pink slip", "yellow receipt") bias retrieval toward chroma color entities rather than semantic text intent.
+          </p>
+<div class="mt-3 pt-2.5 border-t border-surface-container flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Failure Mode:</span>
+<span class="font-code-badge text-code-badge text-tertiary bg-error-container/40 px-1.5 py-0.5 rounded">Chroma Hijack</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-surface-container shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Forced Workaround Cost</span>
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">timer</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Users who abandon textual retrieval spend a median of <strong class="text-on-surface font-semibold">14.8 minutes</strong> manually scrolling timeline grids.
+          </p>
+<div class="mt-3 pt-2.5 border-t border-surface-container flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Scroll Fatigue:</span>
+<span class="font-data-tabular text-body-sm font-semibold text-tertiary">High UX Drop-off</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Dedicated Inspection Drawer (Clean 360px sticky sidebar) -->
+<div class="w-full 2xl:w-[380px] xl:max-w-[420px] 2xl:max-w-[380px] flex-shrink-0">
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container shadow-sm overflow-hidden flex flex-col sticky top-16">
+<!-- Drawer Header -->
+<div class="p-4 bg-surface-container-low border-b border-surface-container flex items-start justify-between">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface font-bold" id="drawerRecordId">Record #GP-RET-0981</span>
+<span class="font-code-badge text-[10px] px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-bold tracking-wide">CRITICAL</span>
+</div>
+<div class="flex items-center gap-1.5 mt-1 text-on-surface-variant font-body-sm text-body-sm truncate">
+<span class="material-symbols-outlined text-[15px] text-tertiary">public</span>
+<span class="font-medium truncate" id="drawerSource">Reddit / r/googlephotos</span>
+<span class="text-outline-variant">·</span>
+<a class="text-primary hover:underline flex items-center gap-0.5 font-label-sm text-label-sm shrink-0" href="#" id="drawerSourceLink">
+<span class="">reddit.com/...</span>
+<span class="material-symbols-outlined text-[12px]">open_in_new</span>
+</a>
+</div>
+</div>
+<div class="flex items-center gap-1 ml-2 shrink-0">
+<button class="w-7 h-7 rounded hover:bg-surface-container flex items-center justify-center text-on-surface-variant" id="btnPrevRecord" title="Previous record">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-7 h-7 rounded hover:bg-surface-container flex items-center justify-center text-on-surface-variant" id="btnNextRecord" title="Next record">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Drawer Body Content (Scrollable with generous padding) -->
+<div class="p-5 space-y-4 max-h-[calc(100vh-190px)] overflow-y-auto">
+<!-- Verbatim Quote Block -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Original User Verbatim</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">format_quote</span>
+</div>
+<blockquote class="p-3.5 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface leading-relaxed italic border-l-4 border-primary" id="drawerVerbatim">
+              "I tried searching 'red jacket yellow tent camping 2022' because I vividly remember the weekend with Mark, but Google Photos just gave me 400 random red jackets and zero tents from that trip. Had to manually scroll for 15 minutes."
+            </blockquote>
+</div>
+<!-- Retrieval Context -->
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold block mb-1.5">Retrieval Context</span>
+<div class="p-3 rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm leading-relaxed" id="drawerContext">
+              User attempting to retrieve a specific memorable event (2022 Pacific Northwest camping trip) based on salient visual cues (companion Mark, red jacket, yellow tent).
+            </div>
+</div>
+<!-- Cognitive Cues Grid -->
+<div class="grid grid-cols-1 gap-2.5">
+<!-- Remembered Details -->
+<div class="p-3 rounded-lg bg-secondary-fixed/25 flex flex-col border border-secondary-fixed">
+<div class="flex items-center gap-1.5 text-secondary font-label-md text-label-md font-semibold mb-1">
+<span class="material-symbols-outlined text-[16px]">psychology</span>
+<span class="">Remembered Details</span>
+</div>
+<ul class="space-y-1 font-body-sm text-body-sm text-on-surface" id="drawerRemembered">
+<li class="">• Color of apparel (red jacket)</li>
+<li class="">• Equipment color (yellow tent)</li>
+<li class="">• Companion present (Mark)</li>
+<li class="">• Year (2022)</li>
+<li class="">• Activity (camping)</li>
+</ul>
+</div>
+<!-- Missing / Forgotten Details -->
+<div class="p-3 rounded-lg bg-error-container/30 flex flex-col border border-error-container">
+<div class="flex items-center gap-1.5 text-error font-label-md text-label-md font-semibold mb-1">
+<span class="material-symbols-outlined text-[16px]">help_outline</span>
+<span class="">Forgotten Details</span>
+</div>
+<ul class="space-y-1 font-body-sm text-body-sm text-on-surface" id="drawerMissing">
+<li class="">• Exact date / month unknown</li>
+<li class="">• Exact location name / geo-tag</li>
+<li class="">• File metadata format / camera</li>
+</ul>
+</div>
+</div>
+<!-- Search Attempt In Google Photos -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Search Query Entered</span>
+<span class="font-code-badge text-code-badge text-on-surface-variant">Conjunction</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container font-code-badge text-[12px] text-primary flex items-center justify-between border border-surface-container-high">
+<code class="truncate pr-2" id="drawerQuery">"red jacket yellow tent camping 2022"</code>
+<button class="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-container-highest shrink-0" onclick="navigator.clipboard.writeText('red jacket yellow tent camping 2022')" title="Copy query">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Reported Failure Mechanics -->
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold block mb-1.5">Reported Problem Mechanics</span>
+<div class="p-3 rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm leading-relaxed" id="drawerProblem">
+              Search engine performed greedy token matching on 'red jacket', flooding the grid with unrelated red clothing items across a 10-year library. Ignored the joint probability of 'yellow tent' and temporal token '2022'.
+            </div>
+</div>
+<!-- Workaround & Outcome -->
+<div class="space-y-2.5">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold block mb-1">Workaround Attempted</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug" id="drawerWorkaround">
+                User gave up on search bar and switched to manual chronological timeline scrolling, taking 15+ minutes.
+              </p>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold block mb-1.5">Outcome Classification</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-tertiary-container text-on-tertiary-container font-label-md text-label-md font-semibold" id="drawerOutcomeBadge">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+                Abandoned / Forced Manual Scroll
+              </span>
+</div>
+</div>
+<!-- Schema Binding & PM Dispatch Actions -->
+<div class="pt-3 border-t border-surface-container">
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-1 border border-surface-container">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">DATASET NOTE</span>
+<span class="font-code-badge text-[10px] text-primary font-bold">READY TO BIND</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-tight">
+                DEMO DATA — Ready for real dataset schema binding with BigQuery search telemetry or internal Buganizer cluster.
+              </p>
+</div>
+<!-- Action Buttons for PM Workflow -->
+<div class="flex items-center gap-2 mt-3">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-medium transition-colors shadow-sm" id="btnCreateBug">
+<span class="material-symbols-outlined text-[16px]">bug_report</span>
+<span class="">File Failure Case</span>
+</button>
+<button class="inline-flex items-center justify-center px-3 py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors shadow-sm border border-surface-container-high" id="btnBookmark" title="Add to PM Dossier">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Inspection dataset model for micro-interactions
+  const RECORD_DATA = {
+    "GP-RET-0981": {
+      id: "GP-RET-0981",
+      source: "Reddit / r/googlephotos",
+      sourceUrl: "reddit.com/r/googlephotos/comments/18x_camp...",
+      severity: "CRITICAL",
+      verbatim: "I tried searching 'red jacket yellow tent camping 2022' because I vividly remember the weekend with Mark, but Google Photos just gave me 400 random red jackets and zero tents from that trip. Had to manually scroll for 15 minutes.",
+      context: "User attempting to retrieve a specific memorable event (2022 Pacific Northwest camping trip) based on salient visual cues (companion Mark, red jacket, yellow tent).",
+      remembered: [
+        "Color of apparel (red jacket)",
+        "Equipment color (yellow tent)",
+        "Companion present (Mark)",
+        "Year (2022)",
+        "Activity (camping)"
+      ],
+      missing: [
+        "Exact date / month unknown",
+        "Exact location name / geo-tag",
+        "File metadata format"
+      ],
+      query: '"red jacket yellow tent camping 2022"',
+      problem: "Search engine performed greedy token matching on 'red jacket', flooding the grid with unrelated red clothing items across a 10-year library. Ignored the joint probability of 'yellow tent' and temporal token '2022'.",
+      workaround: "User gave up on search bar and switched to manual chronological timeline scrolling, taking 15+ minutes.",
+      outcome: "Abandoned / Forced Manual Scroll",
+      outcomeColor: "bg-tertiary-container text-on-tertiary-container",
+      outcomeIcon: "cancel"
+    },
+    "GP-RET-1044": {
+      id: "GP-RET-1044",
+      source: "GP Community / Thread #84920",
+      sourceUrl: "support.google.com/photos/thread/84920...",
+      severity: "HIGH",
+      verbatim: "Looking for a photo of the car insurance pink slip I took a picture of last year in my glovebox. Search 'pink slip' or 'car insurance' brings up random pink flowers and nothing from documents.",
+      context: "User urgently needing DMV car registration documentation while standing at the vehicle inspection counter.",
+      remembered: [
+        "Colloquial document title ('pink slip')",
+        "Vehicle context ('car insurance')",
+        "Rough timeframe (last calendar year)",
+        "Physical capture location (glovebox)"
+      ],
+      missing: [
+        "Exact policy number string",
+        "Official insurer legal entity name",
+        "Exact month of photograph"
+      ],
+      query: '"pink slip car insurance"',
+      problem: "OCR semantic misunderstanding; surfaced chromatic pink matches (hibiscus, rose petals) instead of reading document text and recognizing official form layout.",
+      workaround: "Had to open car physical glovebox and locate physical paper receipt, rendering digital photo backup useless.",
+      outcome: "Not Found (Zero Document Recall)",
+      outcomeColor: "bg-error text-on-error",
+      outcomeIcon: "block"
+    },
+    "GP-RET-1102": {
+      id: "GP-RET-1102",
+      source: "Google Play Store / 1-Star Review",
+      sourceUrl: "play.google.com/store/apps/details?id=com.google.android.apps.photos",
+      severity: "MODERATE",
+      verbatim: "Search used to be magical, now if I type 'Mom at the Italian restaurant with the checkered tablecloth' it tells me no results. I literally spent 20 minutes scrolling backward to June 2021.",
+      context: "Daughter preparing a birthday slideshow needing an evocative candid photo of parent during a family celebration.",
+      remembered: [
+        "Person identity ('Mom')",
+        "Cuisine/establishment style ('Italian restaurant')",
+        "Distinctive ambient visual cue ('checkered tablecloth')"
+      ],
+      missing: [
+        "Specific calendar date (was June 2021)",
+        "Restaurant name / Street address",
+        "Album tag assignment"
+      ],
+      query: '"Mom Italian restaurant checkered tablecloth"',
+      problem: "Over-constrained query zero-recall fallback. Strict boolean conjunction failed when the pattern classifier did not register tablecloth pattern as a primary object label.",
+      workaround: "User scrolled manually 20 minutes backward on the main timeline to June 2021.",
+      outcome: "Abandoned (Manual Scroll Fallback)",
+      outcomeColor: "bg-surface-container-highest text-on-surface",
+      outcomeIcon: "history"
+    },
+    "GP-RET-1250": {
+      id: "GP-RET-1250",
+      source: "YouTube Comments / Ask Photos Keynote",
+      sourceUrl: "youtube.com/watch?v=ask_photos_demo...",
+      severity: "OPPORTUNITY",
+      verbatim: "Ask Photos keynote promised conversational queries, but typing 'that drawing my daughter made of our cat on blue construction paper' just gave me actual photos of cats.",
+      context: "Parent looking for artistic keepsake scan to print or share with extended family relatives.",
+      remembered: [
+        "Medium: Child hand drawing / crayon craft",
+        "Subject: Family cat",
+        "Background texture: Blue construction paper",
+        "Creator: Daughter"
+      ],
+      missing: [
+        "Capture timestamp",
+        "Pre-existing OCR or metadata label"
+      ],
+      query: '"daughter drawing cat blue paper"',
+      problem: "Classification engine flattened artwork/sketch modality into the semantic entity class 'cat', retrieving high-confidence biological cats rather than children's artwork.",
+      workaround: "User opened dedicated 'Family Craft' manual album after failing search query.",
+      outcome: "Partially Found (Manual Album Browse)",
+      outcomeColor: "bg-secondary-fixed text-on-secondary-fixed",
+      outcomeIcon: "tune"
+    },
+    "GP-RET-1399": {
+      id: "GP-RET-1399",
+      source: "Apple App Store / iOS Review",
+      sourceUrl: "apps.apple.com/app/google-photos/id962194608",
+      severity: "HIGH",
+      verbatim: "Searched for 'hiking shoes receipt REI' from two months ago to do a warranty return. Photos showed pictures of my boots from 3 years ago and didn't find the receipt photo.",
+      context: "Customer standing at physical retailer service desk attempting warranty exchange within return policy limit.",
+      remembered: [
+        "Document type ('receipt')",
+        "Vendor entity ('REI')",
+        "Product category ('hiking shoes')",
+        "Recency: ~2 months ago"
+      ],
+      missing: [
+        "Exact transaction total",
+        "Barcode / SKU number string"
+      ],
+      query: '"hiking shoes receipt REI"',
+      problem: "Keyword visual dominance over OCR document recognition. Visual classifier weighted 'hiking shoes' over OCR text tokens, surfacing 3-year-old pictures of trail boots.",
+      workaround: "Customer paid out-of-pocket repair fee as receipt was not found in time at register.",
+      outcome: "Not Found (Warranty Expired)",
+      outcomeColor: "bg-error text-on-error",
+      outcomeIcon: "block"
+    }
+  };
+
+  const recordKeys = Object.keys(RECORD_DATA);
+  let currentRecordIndex = 0;
+
+  function renderDrawer(recordId) {
+    const data = RECORD_DATA[recordId];
+    if (!data) return;
+
+    // Highlight row in table
+    document.querySelectorAll(".feedback-row").forEach(row => {
+      if (row.getAttribute("data-record-id") === recordId) {
+        row.classList.remove("bg-surface-container-lowest", "hover:bg-surface-container-low");
+        row.classList.add("bg-primary-fixed/20", "hover:bg-primary-fixed/30");
+      } else {
+        row.classList.remove("bg-primary-fixed/20", "hover:bg-primary-fixed/30");
+        row.classList.add("bg-surface-container-lowest", "hover:bg-surface-container-low");
+      }
+    });
+
+    // Populate drawer elements
+    document.getElementById("drawerRecordId").textContent = `Record #${data.id}`;
+    document.getElementById("drawerSource").textContent = data.source;
+    document.getElementById("drawerSourceLink").setAttribute("href", "#");
+    document.getElementById("drawerSourceLink").querySelector("span").textContent = data.sourceUrl.split('/')[0] + '/...';
+    document.getElementById("drawerVerbatim").textContent = data.verbatim;
+    document.getElementById("drawerContext").textContent = data.context;
+
+    // Remembered
+    const rememberedEl = document.getElementById("drawerRemembered");
+    rememberedEl.innerHTML = data.remembered.map(item => `<li>• ${item}</li>`).join("");
+
+    // Missing
+    const missingEl = document.getElementById("drawerMissing");
+    missingEl.innerHTML = data.missing.map(item => `<li>• ${item}</li>`).join("");
+
+    // Query
+    document.getElementById("drawerQuery").textContent = data.query;
+    document.getElementById("drawerProblem").textContent = data.problem;
+    document.getElementById("drawerWorkaround").textContent = data.workaround;
+
+    // Outcome
+    const outcomeEl = document.getElementById("drawerOutcomeBadge");
+    outcomeEl.className = `inline-flex items-center gap-1.5 px-3 py-1 rounded font-label-md text-label-md font-semibold ${data.outcomeColor}`;
+    outcomeEl.innerHTML = `<span class="material-symbols-outlined text-[16px]">${data.outcomeIcon}</span> ${data.outcome}`;
+
+    // Update current index pointer
+    currentRecordIndex = recordKeys.indexOf(recordId);
+  }
+
+  // Row click listeners
+  document.querySelectorAll(".feedback-row").forEach(row => {
+    row.addEventListener("click", () => {
+      const recordId = row.getAttribute("data-record-id");
+      renderDrawer(recordId);
+    });
+  });
+
+  // Next/Prev buttons
+  document.getElementById("btnPrevRecord").addEventListener("click", () => {
+    if (currentRecordIndex > 0) {
+      currentRecordIndex--;
+      renderDrawer(recordKeys[currentRecordIndex]);
+    } else {
+      currentRecordIndex = recordKeys.length - 1;
+      renderDrawer(recordKeys[currentRecordIndex]);
+    }
+  });
+
+  document.getElementById("btnNextRecord").addEventListener("click", () => {
+    if (currentRecordIndex < recordKeys.length - 1) {
+      currentRecordIndex++;
+      renderDrawer(recordKeys[currentRecordIndex]);
+    } else {
+      currentRecordIndex = 0;
+      renderDrawer(recordKeys[currentRecordIndex]);
+    }
+  });
+
+  // Search filter interactive micro-interaction
+  const searchInput = document.getElementById("globalSearchInput");
+  searchInput.addEventListener("input", (e) => {
+    const term = e.target.value.toLowerCase().trim();
+    document.querySelectorAll(".feedback-row").forEach(row => {
+      const text = row.innerText.toLowerCase();
+      if (!term || text.includes(term)) {
+        row.style.display = "";
+      } else {
+        row.style.display = "none";
+      }
+    });
+  });
+
+  // Export buttons feedback
+  document.getElementById("btnExportCSV").addEventListener("click", () => {
+    alert("Exporting 5 inspection records to CSV format (DEMO SCHEMA)...");
+  });
+
+  document.getElementById("btnExportJSON").addEventListener("click", () => {
+    const jsonStr = JSON.stringify(RECORD_DATA, null, 2);
+    const blob = new Blob([jsonStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "google-photos-retrieval-feedback.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // File bug micro-interaction
+  document.getElementById("btnCreateBug").addEventListener("click", () => {
+    const currentId = recordKeys[currentRecordIndex];
+    alert(`Generating Buganizer draft for failure case: [Retrieval Quality] ${currentId} — Attached telemetry schemas.`);
+  });
+
+  // Bookmark notification
+  document.getElementById("btnBookmark").addEventListener("click", function() {
+    this.classList.toggle("text-primary");
+    this.classList.toggle("bg-primary-fixed");
+  });
+</script></main></div></body></html>

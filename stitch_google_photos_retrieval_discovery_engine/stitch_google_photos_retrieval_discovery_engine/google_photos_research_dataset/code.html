@@ -1,0 +1,596 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {"darkMode":"class","theme":{"extend":{"colors":{"inverse-primary":"#adc7ff","error":"#ba1a1a","on-secondary-fixed-variant":"#005320","surface":"#f7f9ff","on-background":"#181c20","surface-container-low":"#f1f4fa","primary-fixed-dim":"#adc7ff","on-tertiary-fixed":"#410001","background":"#f7f9ff","on-secondary":"#ffffff","on-primary":"#ffffff","tertiary-container":"#dc392c","tertiary-fixed":"#ffdad5","surface-bright":"#f7f9ff","on-primary-container":"#ffffff","on-tertiary":"#ffffff","tertiary":"#b81d17","surface-container-high":"#e5e8ee","primary-container":"#1a73e8","secondary-fixed":"#89fa9b","on-secondary-container":"#00722f","secondary-container":"#86f898","on-secondary-fixed":"#002108","secondary-fixed-dim":"#6ddd81","inverse-surface":"#2d3135","on-primary-fixed-variant":"#004493","primary":"#005bbf","secondary":"#006e2c","on-tertiary-fixed-variant":"#930004","tertiary-fixed-dim":"#ffb4a9","on-tertiary-container":"#ffffff","on-surface":"#181c20","surface-variant":"#dfe3e8","surface-dim":"#d7dae0","surface-tint":"#005bc0","on-error-container":"#93000a","inverse-on-surface":"#eef1f7","surface-container-highest":"#dfe3e8","on-error":"#ffffff","surface-container-lowest":"#ffffff","surface-container":"#ebeef4","primary-fixed":"#d8e2ff","error-container":"#ffdad6","outline":"#727785","on-surface-variant":"#414754","outline-variant":"#c1c6d6","on-primary-fixed":"#001a41"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter":"1rem","space-sm":"0.5rem","margin":"1.5rem","space-md":"0.75rem","margin-mobile":"1rem","space-xl":"1.5rem","space-lg":"1rem","gutter-compact":"0.5rem","space-xs":"0.25rem"},"fontFamily":{"code-badge":["JetBrains Mono"],"data-tabular":["JetBrains Mono"],"body-md":["Inter"],"label-md":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"label-sm":["Inter"],"title-md":["Inter"],"headline-lg":["Inter"],"body-sm":["Inter"],"headline-sm":["Inter"]},"fontSize":{"code-badge":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"500"}],"data-tabular":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","letterSpacing":"0.005em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"500"}],"title-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"400"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest flex flex-col justify-between z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="p-space-lg flex items-start gap-space-sm bg-surface-container-lowest"><div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center flex-shrink-0 shadow-[0_1px_2px_rgba(60,64,67,0.12)]"><svg class="w-6 h-6" fill="none" viewBox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7V12H12C14.76 12 17 9.76 17 7C17 4.24 14.76 2 12 2Z" fill="#dc392c"></path><path d="M22 12C22 9.24 19.76 7 17 7H12V12C12 14.76 14.76 17 17 17C19.76 17 22 14.76 22 12Z" fill="#1a73e8"></path><path d="M12 22C14.76 22 17 19.76 17 17V12H12C9.24 12 7 14.76 7 17C7 19.76 9.24 22 12 22Z" fill="#006e2c"></path><path d="M2 12C2 14.76 4.24 17 7 17H12V12C12 9.24 9.24 7 7 7C4.24 7 2 9.24 2 12Z" fill="#dc392c" opacity="0.9"></path></svg></div><div class="flex flex-col min-w-0"><h1 class="font-title-md text-title-md text-on-surface truncate leading-tight">Google Photos Discovery</h1><p class="font-label-sm text-label-sm text-on-surface-variant truncate mt-space-xs">Retrieval Discovery Engine · PM Research</p></div></div><nav class="flex-1 px-space-sm py-space-md space-y-space-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-md text-label-md truncate">Overview</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-all bg-primary-container text-on-primary-container font-headline-sm" data-path="research-dataset" href="#"><span class="material-symbols-outlined text-[20px]">dataset</span><span class="font-label-md text-label-md truncate">Research Dataset</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="user-feedback" href="#"><span class="material-symbols-outlined text-[20px]">rate_review</span><span class="font-label-md text-label-md truncate">User Feedback</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="search-behavior" href="#"><span class="material-symbols-outlined text-[20px]">manage_search</span><span class="font-label-md text-label-md truncate">Search Behavior</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="retrieval-failures" href="#"><span class="material-symbols-outlined text-[20px]">error_outline</span><span class="font-label-md text-label-md truncate">Retrieval Failures</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="evidence-opportunities" href="#"><span class="material-symbols-outlined text-[20px]">lightbulb</span><span class="font-label-md text-label-md truncate">Evidence &amp; Opportunities</span></a></nav></div><div class="p-space-md m-space-sm bg-surface-container-low rounded-xl shadow-[0_1px_2px_rgba(60,64,67,0.12)]"><div class="flex items-center justify-between mb-space-xs"><span class="font-title-md text-title-md text-on-surface">Dataset</span><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant">DEMO DATA</span></div><div class="space-y-space-xs"><div class="flex justify-between items-center"><span class="font-body-sm text-body-sm text-on-surface-variant">Records</span><span class="font-data-tabular text-data-tabular text-on-surface font-medium">1,842</span></div><div class="flex justify-between items-center"><span class="font-body-sm text-body-sm text-on-surface-variant">Sources</span><span class="font-label-sm text-label-sm text-on-surface">5 Public Channels</span></div><div class="flex justify-between items-center"><span class="font-body-sm text-body-sm text-on-surface-variant">Last Updated</span><span class="font-data-tabular text-data-tabular text-on-surface">Oct 24, 2024</span></div></div><div class="mt-space-sm pt-space-xs bg-surface-container-high/40 rounded-lg p-space-xs"><p class="font-body-sm text-[11px] leading-tight text-on-surface-variant">Public feedback research for Photo Retrieval Case Study</p></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-12 bg-surface-container-lowest/90 backdrop-blur-xl z-40 flex items-center justify-between px-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Internal Workspace</span><span class="font-code-badge text-code-badge bg-surface-container px-space-sm py-0.5 rounded text-primary">ENV: PM-RESEARCH</span></div><div class="flex items-center gap-space-lg"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-12 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive Top Action Area & Page Header -->
+<div class="px-6 pt-4 pb-2 flex flex-col md:flex-row md:items-end justify-between gap-3">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm mb-space-xs">
+<span class="">RESEARCH REPOSITORY</span>
+<span class="">/</span>
+<span class="text-primary font-medium">PIPELINE PROVENANCE</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Google Photos Research Dataset</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Source provenance, dataset composition, and data quality for Google Photos retrieval feedback analysis.</p>
+</div>
+<div class="flex items-center gap-space-sm flex-shrink-0">
+<div class="inline-flex items-center gap-1.5 px-space-md py-1 rounded-full bg-secondary-container/40 text-on-secondary-container font-code-badge text-code-badge shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+        DATASET STATUS: NORMALIZED (DEMO DATA)
+      </div>
+<button class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors shadow-sm" onclick="document.getElementById('provenanceDrawer').classList.toggle('translate-x-full')">
+<span class="material-symbols-outlined text-[16px] text-primary">schema</span>
+<span class="">View Ingest Spec</span>
+</button>
+</div>
+</div>
+<!-- Main Body Content Area -->
+<div class="px-6 py-4 space-y-4 max-w-[1600px] mx-auto w-full overflow-x-hidden">
+<!-- Purpose Banner -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[24px]">troubleshoot</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface">Evidence Provenance Policy</span>
+<span class="font-code-badge text-[10px] px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant">SPEC-V4.2</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+            This Discovery Engine normalizes public user feedback specifically referencing Google Photos search, retrieval friction, and album navigation to identify real user struggle patterns. Non-retrieval complaints (storage caps, billing) are classified and quarantined.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm pl-space-md sm:border-l sm:border-surface-variant/40 flex-shrink-0">
+<div class="text-right">
+<div class="font-data-tabular text-[18px] text-on-surface font-semibold leading-tight">61.0%</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Retrieval Density</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">list_alt_check</span>
+</div>
+</div>
+</div>
+<!-- Section 1: Detailed Source Cards -->
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-baseline gap-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Data Sources &amp; Channel Pipelines</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">5 Public Multi-channel Feeds</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Updated daily at 00:00 UTC</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-space-md">
+<!-- Source 1: Reddit -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-6 h-6 rounded-md bg-tertiary/10 text-tertiary flex items-center justify-center font-bold text-[12px]">r/</span>
+<span class="font-title-md text-title-md text-on-surface">Reddit</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-label-sm text-[10px] uppercase font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Active Ingest
+              </span>
+</div>
+<!-- Stats Bar -->
+<div class="p-space-xs bg-surface-container-low rounded-lg space-y-1">
+<div class="flex justify-between items-baseline font-data-tabular text-data-tabular">
+<span class="text-on-surface-variant">Total / Retrieval</span>
+<span class="text-on-surface font-semibold">620 <span class="text-on-surface-variant font-normal">|</span> <span class="text-primary font-semibold">486</span></span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-primary h-full rounded-full" style="width: 78.4%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-label-sm text-on-surface-variant">
+<span class="">Cohort density</span>
+<span class="text-primary font-medium">78.4% relevant</span>
+</div>
+</div>
+<div class="space-y-1 text-[11px]">
+<div class="flex items-start gap-1">
+<span class="text-on-surface-variant font-medium min-w-[70px]">Subreddits:</span>
+<span class="text-on-surface truncate">r/googlephotos, r/android, r/GooglePixel</span>
+</div>
+<div class="flex items-start gap-1">
+<span class="text-on-surface-variant font-medium min-w-[70px]">Window:</span>
+<span class="font-data-tabular text-on-surface">Jan 2023 – Sep 2024</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container-high/60">
+<span class="font-label-sm text-[10px] text-on-surface-variant block uppercase tracking-wider mb-0.5">Dominant Friction</span>
+<p class="font-body-sm text-[11px] text-on-surface leading-snug line-clamp-2">
+                Context-based search queries, metadata failure, manual scrolling frustration.
+              </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between text-on-surface-variant">
+<span class="font-code-badge text-[10px]">API: PUSHSHIFT</span>
+<span class="material-symbols-outlined text-[16px] group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+<!-- Source 2: Google Photos Community -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-6 h-6 rounded-md bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">forum</span>
+</span>
+<span class="font-title-md text-title-md text-on-surface">GP Community</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-label-sm text-[10px] uppercase font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Active Ingest
+              </span>
+</div>
+<!-- Stats Bar -->
+<div class="p-space-xs bg-surface-container-low rounded-lg space-y-1">
+<div class="flex justify-between items-baseline font-data-tabular text-data-tabular">
+<span class="text-on-surface-variant">Total / Retrieval</span>
+<span class="text-on-surface font-semibold">450 <span class="text-on-surface-variant font-normal">|</span> <span class="text-primary font-semibold">318</span></span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 70.7%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-label-sm text-on-surface-variant">
+<span class="">Cohort density</span>
+<span class="text-primary font-medium">70.7% relevant</span>
+</div>
+</div>
+<div class="space-y-1 text-[11px]">
+<div class="flex items-start gap-1">
+<span class="text-on-surface-variant font-medium min-w-[70px]">Categories:</span>
+<span class="text-on-surface truncate">Search, Library, Web vs Mobile</span>
+</div>
+<div class="flex items-start gap-1">
+<span class="text-on-surface-variant font-medium min-w-[70px]">Window:</span>
+<span class="font-data-tabular text-on-surface">Jun 2022 – Aug 2024</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container-high/60">
+<span class="font-label-sm text-[10px] text-on-surface-variant block uppercase tracking-wider mb-0.5">Dominant Friction</span>
+<p class="font-body-sm text-[11px] text-on-surface leading-snug line-clamp-2">
+                Search syntax confusion, facial grouping missing older shots, missing date filters.
+              </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between text-on-surface-variant">
+<span class="font-code-badge text-[10px]">CRAWLER: SUPPORT_FORUM</span>
+<span class="material-symbols-outlined text-[16px] group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+<!-- Source 3: Google Play Store -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-6 h-6 rounded-md bg-secondary/10 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">shop</span>
+</span>
+<span class="font-title-md text-title-md text-on-surface">Play Store</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-label-sm text-[10px] uppercase font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Active Ingest
+              </span>
+</div>
+<!-- Stats Bar -->
+<div class="p-space-xs bg-surface-container-low rounded-lg space-y-1">
+<div class="flex justify-between items-baseline font-data-tabular text-data-tabular">
+<span class="text-on-surface-variant">Total / Retrieval</span>
+<span class="text-on-surface font-semibold">410 <span class="text-on-surface-variant font-normal">|</span> <span class="text-primary font-semibold">198</span></span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 48.3%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-label-sm text-on-surface-variant">
+<span class="">Cohort density</span>
+<span class="text-primary font-medium">48.3% relevant</span>
+</div>
+</div>
+<div class="space-y-1 text-[11px]">
+<div class="flex items-start gap-1">
+<span class="text-on-surface-variant font-medium min-w-[70px]">Filtered For:</span>
+<span class="text-on-surface truncate">'search', 'find', 'locate'</span>
+</div>
+<div class="flex items-start gap-1">
+<span class="text-on-surface-variant font-medium min-w-[70px]">Window:</span>
+<span class="font-data-tabular text-on-surface">Jan 2024 – Oct 2024</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container-high/60">
+<span class="font-label-sm text-[10px] text-on-surface-variant block uppercase tracking-wider mb-0.5">Dominant Friction</span>
+<p class="font-body-sm text-[11px] text-on-surface leading-snug line-clamp-2">
+                Inaccurate AI search results, app freezing on heavy query reformulation.
+              </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between text-on-surface-variant">
+<span class="font-code-badge text-[10px]">FEED: PLAY_CONSOLE</span>
+<span class="material-symbols-outlined text-[16px] group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+<!-- Source 4: YouTube Comments -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-6 h-6 rounded-md bg-tertiary-container/10 text-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">smart_display</span>
+</span>
+<span class="font-title-md text-title-md text-on-surface">YouTube</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-label-sm text-[10px] uppercase font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Active Ingest
+              </span>
+</div>
+<!-- Stats Bar -->
+<div class="p-space-xs bg-surface-container-low rounded-lg space-y-1">
+<div class="flex justify-between items-baseline font-data-tabular text-data-tabular">
+<span class="text-on-surface-variant">Total / Retrieval</span>
+<span class="text-on-surface font-semibold">212 <span class="text-on-surface-variant font-normal">|</span> <span class="text-primary font-semibold">72</span></span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 34.0%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-label-sm text-on-surface-variant">
+<span class="">Cohort density</span>
+<span class="text-primary font-medium">34.0% relevant</span>
+</div>
+</div>
+<div class="space-y-1 text-[11px]">
+<div class="flex items-start gap-1">
+<span class="text-on-surface-variant font-medium min-w-[70px]">Source Media:</span>
+<span class="text-on-surface truncate">Ask Photos Keynote, Demos</span>
+</div>
+<div class="flex items-start gap-1">
+<span class="text-on-surface-variant font-medium min-w-[70px]">Window:</span>
+<span class="font-data-tabular text-on-surface">May 2024 – Oct 2024</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container-high/60">
+<span class="font-label-sm text-[10px] text-on-surface-variant block uppercase tracking-wider mb-0.5">Dominant Friction</span>
+<p class="font-body-sm text-[11px] text-on-surface leading-snug line-clamp-2">
+                Expectation vs reality of semantic search, desire for conversational recall.
+              </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between text-on-surface-variant">
+<span class="font-code-badge text-[10px]">API: YOUTUBE_DATA_V3</span>
+<span class="material-symbols-outlined text-[16px] group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+<!-- Source 5: Apple App Store -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-6 h-6 rounded-md bg-surface-container-highest text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">phone_iphone</span>
+</span>
+<span class="font-title-md text-title-md text-on-surface">App Store (iOS)</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-label-sm text-[10px] uppercase font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Active Ingest
+              </span>
+</div>
+<!-- Stats Bar -->
+<div class="p-space-xs bg-surface-container-low rounded-lg space-y-1">
+<div class="flex justify-between items-baseline font-data-tabular text-data-tabular">
+<span class="text-on-surface-variant">Total / Retrieval</span>
+<span class="text-on-surface font-semibold">150 <span class="text-on-surface-variant font-normal">|</span> <span class="text-primary font-semibold">50</span></span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 33.3%"></div>
+</div>
+<div class="flex justify-between text-[10px] font-label-sm text-on-surface-variant">
+<span class="">Cohort density</span>
+<span class="text-primary font-medium">33.3% relevant</span>
+</div>
+</div>
+<div class="space-y-1 text-[11px]">
+<div class="flex items-start gap-1">
+<span class="text-on-surface-variant font-medium min-w-[70px]">Filtered For:</span>
+<span class="text-on-surface truncate">Retrieval &amp; search terms</span>
+</div>
+<div class="flex items-start gap-1">
+<span class="text-on-surface-variant font-medium min-w-[70px]">Window:</span>
+<span class="font-data-tabular text-on-surface">Mar 2023 – Sep 2024</span>
+</div>
+</div>
+<div class="pt-space-xs border-t border-surface-container-high/60">
+<span class="font-label-sm text-[10px] text-on-surface-variant block uppercase tracking-wider mb-0.5">Dominant Friction</span>
+<p class="font-body-sm text-[11px] text-on-surface leading-snug line-clamp-2">
+                Sync latency affecting search indexing, search bar usability in iOS wrapper.
+              </p>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between text-on-surface-variant">
+<span class="font-code-badge text-[10px]">FEED: ITUNES_RSS</span>
+<span class="material-symbols-outlined text-[16px] group-hover:text-primary transition-colors">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Dataset Summary & Cohort Composition -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left breakdown table -->
+<div class="lg:col-span-8 rounded-xl bg-surface-container-lowest p-space-lg shadow-sm space-y-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Dataset Volume &amp; Quarantine Breakdown</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Classification funnel from ingestion to verified research-ready retrieval corpus.</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Ingested:</span>
+<span class="font-data-tabular text-title-md font-semibold text-on-surface">1,842</span>
+</div>
+</div>
+<!-- Custom Segmented Visual Distribution Bar -->
+<div class="space-y-space-xs">
+<div class="w-full h-8 rounded-lg overflow-hidden flex bg-surface-container-high p-0.5 gap-0.5">
+<div class="h-full bg-primary rounded-l-md flex items-center justify-center text-on-primary font-code-badge text-code-badge relative group cursor-pointer transition-all hover:brightness-105" style="width: 61.0%">
+<span class="">Relevant: 61.0%</span>
+</div>
+<div class="h-full bg-surface-container-highest text-on-surface flex items-center justify-center font-code-badge text-code-badge relative group cursor-pointer transition-all hover:bg-outline-variant" style="width: 32.0%">
+<span class="">Excluded: 32.0%</span>
+</div>
+<div class="h-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-code-badge text-[10px] font-semibold rounded-r-md cursor-pointer transition-all hover:brightness-95" style="width: 7.0%">
+<span class="">7%</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between text-[11px] font-label-sm text-on-surface-variant px-1 pt-1">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary"></span>
+<span class="">Search Retrieval Relevant (1,124)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-surface-container-highest"></span>
+<span class="">Excluded - Storage / Sync / Quota (588)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-tertiary-fixed"></span>
+<span class="">Unclear / Missing Context (130)</span>
+</div>
+</div>
+</div>
+<!-- Metric Details List -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="p-space-md rounded-lg bg-surface-container-low space-y-1">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">In-Scope Feedback</span>
+<span class="material-symbols-outlined text-[18px] text-primary">check_circle</span>
+</div>
+<div class="font-data-tabular text-[20px] font-semibold text-primary">1,124</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-tight">Tagged with specific photo recall, album grouping, or semantic search pain.</p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low space-y-1">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Out-of-Scope Excluded</span>
+<span class="material-symbols-outlined text-[18px] text-outline">cancel</span>
+</div>
+<div class="font-data-tabular text-[20px] font-semibold text-on-surface">588</div>
+<div class="text-[11px] font-data-tabular text-on-surface-variant space-y-0.5">
+<div class="">380 Cloud quota / pricing</div>
+<div class="">142 Backup &amp; auto-sync failure</div>
+<div class="">66 Billing &amp; subscription errors</div>
+</div>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low space-y-1">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="">Quarantined &amp; Deduplicated</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">cleaning_services</span>
+</div>
+<div class="font-data-tabular text-[20px] font-semibold text-tertiary">214</div>
+<div class="text-[11px] font-data-tabular text-on-surface-variant space-y-0.5">
+<div class="">130 Unclear context / single words</div>
+<div class="">84 Exact duplicates cross-posted</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual Cohort Telemetry Representation -->
+<div class="lg:col-span-4 rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface">Corpus Health Ratio</h3>
+<span class="font-code-badge text-code-badge text-secondary bg-secondary-fixed/30 px-1.5 py-0.5 rounded">PASSED QA</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Signal-to-noise ratio exceeds the 55% target threshold required for qualitative research synthesis.</p>
+<!-- Inline SVG Gauge Chart -->
+<div class="relative flex items-center justify-center py-2">
+<svg class="w-48 h-48 -rotate-90" viewBox="0 0 120 120">
+<circle class="text-surface-container-high" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-width="10"></circle>
+<!-- 61% of circumference (2 * pi * 48 = 301.59) -> dashoffset: 301.59 * (1 - 0.61) = 117.6 -->
+<circle class="text-primary transition-all duration-1000" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="301.59" stroke-dashoffset="117.6" stroke-linecap="round" stroke-width="10"></circle>
+<!-- 32% excluded -> starting from 61% -->
+<circle class="text-outline-variant" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="301.59" stroke-dashoffset="205" stroke-linecap="round" stroke-width="10"></circle>
+</svg>
+<div class="absolute flex flex-col items-center justify-center text-center">
+<span class="font-data-tabular text-[28px] font-semibold text-on-surface leading-tight">61%</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Usable Signal</span>
+</div>
+</div>
+</div>
+<div class="p-space-xs bg-surface-container rounded-lg flex items-center justify-between text-on-surface-variant text-[11px] mt-space-sm">
+<span class="">Target baseline: &gt;50%</span>
+<span class="text-secondary font-medium">+11.0% vs benchmark</span>
+</div>
+</div>
+</div>
+<!-- Section 3: Data Quality & Integrity Cards -->
+<div class="space-y-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Data Quality &amp; Ingestion Integrity</h2>
+<span class="font-code-badge text-code-badge bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant">L1 SANITIZATION ENGINE</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Metric 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Missing Text Body</span>
+<div class="w-8 h-8 rounded-full bg-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+</div>
+<div>
+<div class="font-data-tabular text-[32px] font-semibold text-on-surface leading-none">0</div>
+<div class="flex items-center gap-1 text-[11px] text-secondary font-medium mt-1">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span class="">100% Validated Strings</span>
+</div>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-space-md pt-space-xs border-t border-surface-container-high/60">
+            Zero null or truncated user comment bodies across all ingested APIs.
+          </p>
+</div>
+<!-- Metric 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Missing Source URL</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">link_off</span>
+</div>
+</div>
+<div>
+<div class="font-data-tabular text-[32px] font-semibold text-on-surface leading-none">14</div>
+<div class="flex items-center gap-1 text-[11px] text-tertiary font-medium mt-1">
+<span class="material-symbols-outlined text-[14px]">flag</span>
+<span class="">0.8% flagged for review</span>
+</div>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-space-md pt-space-xs border-t border-surface-container-high/60">
+            Records stripped of direct link due to deleted thread or forum author privacy changes.
+          </p>
+</div>
+<!-- Metric 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Duplicate Records</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</div>
+</div>
+<div>
+<div class="font-data-tabular text-[32px] font-semibold text-on-surface leading-none">84</div>
+<div class="flex items-center gap-1 text-[11px] text-on-surface-variant font-medium mt-1">
+<span class="">Exact cross-posts purged</span>
+</div>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-space-md pt-space-xs border-t border-surface-container-high/60">
+            Detected via SHA-256 text fingerprinting against bot repetition and mirrored reviews.
+          </p>
+</div>
+<!-- Metric 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Manual Review Queue</span>
+<div class="w-8 h-8 rounded-full bg-primary-fixed/60 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+</div>
+</div>
+<div>
+<div class="font-data-tabular text-[32px] font-semibold text-primary leading-none">32</div>
+<div class="flex items-center gap-1 text-[11px] text-primary font-medium mt-1">
+<span class="">Sentiment ambiguity</span>
+</div>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-space-md pt-space-xs border-t border-surface-container-high/60">
+            Complex mixed reviews needing researcher human validation on intent classification.
+          </p>
+</div>
+</div>
+</div>
+<!-- Schema Specification Callout Footer Bar -->
+<div class="p-space-md rounded-xl bg-surface-container-high/50 flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-start md:items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant flex-shrink-0">data_object</span>
+<p class="font-body-sm text-[12px] text-on-surface leading-normal">
+<strong class="font-semibold">DEMO DATA</strong> — Schema matches Google Photos feedback classification schema: 
+          <code class="font-code-badge text-code-badge bg-surface-container-lowest px-1 py-0.5 rounded text-primary">source</code>, 
+          <code class="font-code-badge text-code-badge bg-surface-container-lowest px-1 py-0.5 rounded text-primary">raw_text</code>, 
+          <code class="font-code-badge text-code-badge bg-surface-container-lowest px-1 py-0.5 rounded text-primary">search_intent</code>, 
+          <code class="font-code-badge text-code-badge bg-surface-container-lowest px-1 py-0.5 rounded text-primary">query_attempt</code>, 
+          <code class="font-code-badge text-code-badge bg-surface-container-lowest px-1 py-0.5 rounded text-primary">failure_type</code>, 
+          <code class="font-code-badge text-code-badge bg-surface-container-lowest px-1 py-0.5 rounded text-primary">outcome</code>.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm flex-shrink-0">
+<button class="inline-flex items-center gap-1 px-space-md py-1 rounded bg-surface-container-lowest hover:bg-surface text-on-surface font-label-md text-label-md shadow-sm transition-colors" onclick="alert('Exporting sanitized JSON dataset...')">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span class="">Export Schema JSON</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sliding Specification Drawer (Inspect schema) -->
+<div class="fixed top-12 right-0 bottom-0 w-[440px] bg-surface-container-lowest shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col" id="provenanceDrawer">
+<div class="p-space-lg flex items-center justify-between bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary">account_tree</span>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Data Normalization Pipeline</h3>
+<span class="font-code-badge text-[10px] text-on-surface-variant">SPECIFICATION DETAILS</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container-high text-on-surface-variant" onclick="document.getElementById('provenanceDrawer').classList.add('translate-x-full')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-space-lg space-y-space-lg">
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-space-xs">Ingest Pipeline Stages</h4>
+<div class="space-y-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="font-code-badge text-[11px] bg-primary text-on-primary rounded w-5 h-5 flex items-center justify-center flex-shrink-0">1</span>
+<div>
+<div class="font-title-md text-[13px] text-on-surface">Crawler &amp; Ingestion Connectors</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Scrapes official forums, Reddit API feeds, App Store feeds, and Play Console reviews matching intent tokens.</p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="font-code-badge text-[11px] bg-primary text-on-primary rounded w-5 h-5 flex items-center justify-center flex-shrink-0">2</span>
+<div>
+<div class="font-title-md text-[13px] text-on-surface">PII Stripping &amp; De-identification</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Redacts email addresses, account handles, exact GPS pins, and private filenames from verbatim quotes.</p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="font-code-badge text-[11px] bg-primary text-on-primary rounded w-5 h-5 flex items-center justify-center flex-shrink-0">3</span>
+<div>
+<div class="font-title-md text-[13px] text-on-surface">Retrieval Intent Classification</div>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Applies LLM semantic tagger to discard out-of-scope complaints (storage quota, billing) and bucket friction modes.</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-space-xs">JSON Record Schema</h4>
+<pre class="p-space-md rounded-lg bg-surface-container text-on-surface font-code-badge text-[11px] overflow-x-auto leading-relaxed">{
+  "record_id": "GP-RET-2024-0981",
+  "source": "Reddit:r/googlephotos",
+  "raw_text": "I searched for 'receipt from target July'...",
+  "search_intent": "TEMPORAL_ENTITY_LOOKUP",
+  "query_attempt": "receipt from target July",
+  "failure_type": "OCR_ZERO_RECALL",
+  "outcome": "ABANDONED_MANUAL_SCROLL",
+  "device_context": {
+    "os": "Android 14",
+    "app_version": "6.88.0"
+  },
+  "verified_retrieval": true
+}</pre>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low">
+<h4 class="font-title-md text-[13px] text-on-surface mb-1">Deduplication Logic</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant">MinHash LSH index running at 0.85 Jaccard similarity threshold to isolate duplicated spam reviews across global geographic Play Store storefronts.</p>
+</div>
+</div>
+<div class="p-space-md bg-surface-container-low border-t border-surface-container-high flex justify-end">
+<button class="px-space-md py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm" onclick="document.getElementById('provenanceDrawer').classList.add('translate-x-full')">
+        Close Spec
+      </button>
+</div>
+</div>
+</div></main></div>
+
+</body></html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {"darkMode":"class","theme":{"extend":{"colors":{"inverse-primary":"#adc7ff","error":"#ba1a1a","on-secondary-fixed-variant":"#005320","surface":"#f7f9ff","on-background":"#181c20","surface-container-low":"#f1f4fa","primary-fixed-dim":"#adc7ff","on-tertiary-fixed":"#410001","background":"#f7f9ff","on-secondary":"#ffffff","on-primary":"#ffffff","tertiary-container":"#dc392c","tertiary-fixed":"#ffdad5","surface-bright":"#f7f9ff","on-primary-container":"#ffffff","on-tertiary":"#ffffff","tertiary":"#b81d17","surface-container-high":"#e5e8ee","primary-container":"#1a73e8","secondary-fixed":"#89fa9b","on-secondary-container":"#00722f","secondary-container":"#86f898","on-secondary-fixed":"#002108","secondary-fixed-dim":"#6ddd81","inverse-surface":"#2d3135","on-primary-fixed-variant":"#004493","primary":"#005bbf","secondary":"#006e2c","on-tertiary-fixed-variant":"#930004","tertiary-fixed-dim":"#ffb4a9","on-tertiary-container":"#ffffff","on-surface":"#181c20","surface-variant":"#dfe3e8","surface-dim":"#d7dae0","surface-tint":"#005bc0","on-error-container":"#93000a","inverse-on-surface":"#eef1f7","surface-container-highest":"#dfe3e8","on-error":"#ffffff","surface-container-lowest":"#ffffff","surface-container":"#ebeef4","primary-fixed":"#d8e2ff","error-container":"#ffdad6","outline":"#727785","on-surface-variant":"#414754","outline-variant":"#c1c6d6","on-primary-fixed":"#001a41"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter":"1rem","space-sm":"0.5rem","margin":"1.5rem","space-md":"0.75rem","margin-mobile":"1rem","space-xl":"1.5rem","space-lg":"1rem","gutter-compact":"0.5rem","space-xs":"0.25rem"},"fontFamily":{"code-badge":["JetBrains Mono"],"data-tabular":["JetBrains Mono"],"body-md":["Inter"],"label-md":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"label-sm":["Inter"],"title-md":["Inter"],"headline-lg":["Inter"],"body-sm":["Inter"],"headline-sm":["Inter"]},"fontSize":{"code-badge":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"500"}],"data-tabular":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"18px","letterSpacing":"0.005em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"500"}],"title-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"400"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest flex flex-col justify-between z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="p-space-lg flex items-start gap-space-sm bg-surface-container-lowest"><div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center flex-shrink-0 shadow-[0_1px_2px_rgba(60,64,67,0.12)]"><svg class="w-6 h-6" fill="none" viewBox="0 0 24 24"><path d="M12 2C9.24 2 7 4.24 7 7V12H12C14.76 12 17 9.76 17 7C17 4.24 14.76 2 12 2Z" fill="#dc392c"></path><path d="M22 12C22 9.24 19.76 7 17 7H12V12C12 14.76 14.76 17 17 17C19.76 17 22 14.76 22 12Z" fill="#1a73e8"></path><path d="M12 22C14.76 22 17 19.76 17 17V12H12C9.24 12 7 14.76 7 17C7 19.76 9.24 22 12 22Z" fill="#006e2c"></path><path d="M2 12C2 14.76 4.24 17 7 17H12V12C12 9.24 9.24 7 7 7C4.24 7 2 9.24 2 12Z" fill="#dc392c" opacity="0.9"></path></svg></div><div class="flex flex-col min-w-0"><h1 class="font-title-md text-title-md text-on-surface truncate leading-tight">Google Photos Discovery</h1><p class="font-label-sm text-label-sm text-on-surface-variant truncate mt-space-xs">Retrieval Discovery Engine · PM Research</p></div></div><nav class="flex-1 px-space-sm py-space-md space-y-space-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-label-md text-label-md truncate">Overview</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="research-dataset" href="#"><span class="material-symbols-outlined text-[20px]">dataset</span><span class="font-label-md text-label-md truncate">Research Dataset</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="user-feedback" href="#"><span class="material-symbols-outlined text-[20px]">rate_review</span><span class="font-label-md text-label-md truncate">User Feedback</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="search-behavior" href="#"><span class="material-symbols-outlined text-[20px]">manage_search</span><span class="font-label-md text-label-md truncate">Search Behavior</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="retrieval-failures" href="#"><span class="material-symbols-outlined text-[20px]">error_outline</span><span class="font-label-md text-label-md truncate">Retrieval Failures</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="evidence-opportunities" href="#"><span class="material-symbols-outlined text-[20px]">lightbulb</span><span class="font-label-md text-label-md truncate">Evidence &amp; Opportunities</span></a></nav></div><div class="p-space-md m-space-sm bg-surface-container-low rounded-xl shadow-[0_1px_2px_rgba(60,64,67,0.12)]"><div class="flex items-center justify-between mb-space-xs"><span class="font-title-md text-title-md text-on-surface">Dataset</span><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant">DEMO DATA</span></div><div class="space-y-space-xs"><div class="flex justify-between items-center"><span class="font-body-sm text-body-sm text-on-surface-variant">Records</span><span class="font-data-tabular text-data-tabular text-on-surface font-medium">1,842</span></div><div class="flex justify-between items-center"><span class="font-body-sm text-body-sm text-on-surface-variant">Sources</span><span class="font-label-sm text-label-sm text-on-surface">5 Public Channels</span></div><div class="flex justify-between items-center"><span class="font-body-sm text-body-sm text-on-surface-variant">Last Updated</span><span class="font-data-tabular text-data-tabular text-on-surface">Oct 24, 2024</span></div></div><div class="mt-space-sm pt-space-xs bg-surface-container-high/40 rounded-lg p-space-xs"><p class="font-body-sm text-[11px] leading-tight text-on-surface-variant">Public feedback research for Photo Retrieval Case Study</p></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-12 bg-surface-container-lowest/90 backdrop-blur-xl z-40 flex items-center justify-between px-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Internal Workspace</span><span class="font-code-badge text-code-badge bg-surface-container px-space-sm py-0.5 rounded text-primary">ENV: PM-RESEARCH</span></div><div class="flex items-center gap-space-lg"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-12 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="px-6 py-4 space-y-4 max-w-[1600px] mx-auto w-full overflow-x-hidden">
+<!-- Top Header & Boundary Notification -->
+<div class="flex flex-col gap-space-md bg-surface-container-lowest p-space-xl rounded-xl shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-badge text-code-badge uppercase tracking-wider text-primary font-medium">Stage 04 · Synthesis</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">PM Discovery Stream</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Evidence &amp; Product Opportunities</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">Converting empirical retrieval friction research into targeted product opportunities for Google Photos.</p>
+</div>
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-sm self-start md:self-auto">
+<div class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-amber-50 text-amber-800">
+<span class="material-symbols-outlined text-[16px] text-amber-700">science</span>
+<span class="font-code-badge text-code-badge uppercase tracking-widest font-semibold">DEMO DATA</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">inventory_2</span>
+<span class="font-data-tabular text-data-tabular font-medium">N = 1,123 Filtered Corpus</span>
+</div>
+</div>
+</div>
+<!-- Discovery Boundary Notice Banner -->
+<div class="flex items-center gap-space-md p-space-md rounded-lg bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0">flag</span>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-xs w-full">
+<p class="font-body-md text-body-md text-on-surface">
+<strong class="font-medium text-on-surface">Discovery Engine Scope Boundary:</strong> This analytical workbench stops at friction synthesis. Deep-dive user interviews, architectural root-cause attribution, and functional MVP engineering belong to subsequent PM phases.
+          </p>
+<span class="font-code-badge text-code-badge text-primary bg-surface-container-lowest px-space-sm py-0.5 rounded shadow-sm flex-shrink-0 self-start md:self-auto">GATE: PM-REV-04</span>
+</div>
+</div>
+</div>
+<!-- Section 1: Existing Google Photos Capabilities (Baseline) -->
+<div class="flex flex-col gap-space-md bg-surface-container-lowest p-space-xl rounded-xl shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<h2 class="font-title-md text-title-md text-on-surface">Section 1 · Baseline Verification (Active Capabilities)</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Production Grounding Matrix</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        System baseline verification confirms that reported retrieval friction stems from semantic aggregation failure and query orchestration mechanics, rather than an absence of foundational ML infrastructure.
+      </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-sm pt-space-xs">
+<!-- Baseline Item 1 -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px]">face</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">People &amp; Pets</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Facial clustering, entity naming</span>
+</div>
+</div>
+<span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-secondary font-medium flex-shrink-0">Active Core</span>
+</div>
+<!-- Baseline Item 2 -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Places &amp; Maps</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">EXIF geo-location clustering</span>
+</div>
+</div>
+<span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-secondary font-medium flex-shrink-0">Active Core</span>
+</div>
+<!-- Baseline Item 3 -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px]">category</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Visual Objects</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Image classification labels</span>
+</div>
+</div>
+<span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-secondary font-medium flex-shrink-0">Active Core</span>
+</div>
+<!-- Baseline Item 4 -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px]">calendar_today</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Dates &amp; Timelines</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Chronological indexing</span>
+</div>
+</div>
+<span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-secondary font-medium flex-shrink-0">Active Core</span>
+</div>
+<!-- Baseline Item 5 -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px]">document_scanner</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">On-Device OCR</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Text extraction in images</span>
+</div>
+</div>
+<span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-secondary font-medium flex-shrink-0">Active Core</span>
+</div>
+<!-- Baseline Item 6 -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px]">travel_explore</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Natural Language Search</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Vector embeddings space</span>
+</div>
+</div>
+<span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-secondary font-medium flex-shrink-0">Active Core</span>
+</div>
+<!-- Baseline Item 7 -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">auto_awesome</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Ask Photos</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Gemini multimodal assistant</span>
+</div>
+</div>
+<span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-amber-100 text-amber-800 font-medium flex-shrink-0">Early Rollout / US</span>
+</div>
+<!-- Baseline Item 8 -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px]">photo_library</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Albums &amp; Favorites</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Explicit manual curation</span>
+</div>
+</div>
+<span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-secondary font-medium flex-shrink-0">Active Core</span>
+</div>
+<!-- Baseline Item 9 -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px]">auto_stories</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Memories &amp; Highlights</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Algorithmic surfacing rules</span>
+</div>
+</div>
+<span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-secondary font-medium flex-shrink-0">Active Core</span>
+</div>
+</div>
+</div>
+<!-- Section 2: Remaining User Friction (The Product Connection) -->
+<div class="flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-xs px-space-xs">
+<div>
+<span class="font-code-badge text-code-badge uppercase tracking-wider text-primary">Translation Chain</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Section 2 · The Product Connection</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Traced path from established production capabilities through user voice to unaddressed friction.</p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4 Empirical Vectors Documented</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg"><div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow"><div class="space-y-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-primary/10 text-primary"><span class="material-symbols-outlined text-[14px]">face</span><span class="font-label-sm text-label-sm font-medium">People &amp; Faces</span></div><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">ID: FR-01</span></div><div class="space-y-space-xs pt-1"><div class="flex items-center gap-space-xs"><span class="font-code-badge text-[11px] px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant uppercase font-medium">User Intent</span><span class="font-body-md text-on-surface italic font-medium">“Sarah laughing at birthday”</span></div><div class="grid grid-cols-2 gap-space-xs p-space-xs bg-surface-container-low rounded-lg text-body-sm"><div class="flex flex-col gap-0.5 p-space-xs bg-surface-container-lowest rounded"><span class="text-[11px] font-label-sm text-secondary font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Entity Matched</span><span class="font-code-badge text-on-surface truncate">Person: Sarah (100%)</span></div><div class="flex flex-col gap-0.5 p-space-xs bg-surface-container-lowest rounded"><span class="text-[11px] font-label-sm text-error font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span>Bottleneck Dropped</span><span class="font-code-badge text-tertiary truncate">Action: laughing (0%)</span></div></div></div><p class="font-body-sm text-body-sm text-on-surface-variant">Cannot bind facial clustering dynamically with affective expressions or episodic verbs.</p></div><div class="pt-space-xs border-t border-surface-container flex flex-col gap-1"><div class="flex justify-between items-center text-body-sm"><span class="font-label-sm text-on-surface-variant">Corpus Volume</span><span class="font-data-tabular font-semibold text-on-surface">192 records <span class="text-primary font-medium">(17.1%)</span></span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 17.1%"></div></div></div></div><div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow"><div class="space-y-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-primary/10 text-primary"><span class="material-symbols-outlined text-[14px]">view_in_ar</span><span class="font-label-sm text-label-sm font-medium">Objects &amp; Places</span></div><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">ID: FR-02</span></div><div class="space-y-space-xs pt-1"><div class="flex items-center gap-space-xs"><span class="font-code-badge text-[11px] px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant uppercase font-medium">User Intent</span><span class="font-body-md text-on-surface italic font-medium">“Antique blue couch in living room”</span></div><div class="grid grid-cols-2 gap-space-xs p-space-xs bg-surface-container-low rounded-lg text-body-sm"><div class="flex flex-col gap-0.5 p-space-xs bg-surface-container-lowest rounded"><span class="text-[11px] font-label-sm text-secondary font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Labels Matched</span><span class="font-code-badge text-on-surface truncate">Couch, Blue pillow</span></div><div class="flex flex-col gap-0.5 p-space-xs bg-surface-container-lowest rounded"><span class="text-[11px] font-label-sm text-error font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span>Bottleneck Dropped</span><span class="font-code-badge text-tertiary truncate">Style: Antique / Spatial</span></div></div></div><p class="font-body-sm text-body-sm text-on-surface-variant">Vision labels lack subjective qualifiers (antique, architectural vibe, background vs foreground).</p></div><div class="pt-space-xs border-t border-surface-container flex flex-col gap-1"><div class="flex justify-between items-center text-body-sm"><span class="font-label-sm text-on-surface-variant">Corpus Volume</span><span class="font-data-tabular font-semibold text-on-surface">245 records <span class="text-primary font-medium">(21.8%)</span></span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-primary-container rounded-full" style="width: 21.8%"></div></div></div></div><div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow"><div class="space-y-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-primary/10 text-primary"><span class="material-symbols-outlined text-[14px]">history</span><span class="font-label-sm text-label-sm font-medium">Chronological Indexing</span></div><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">ID: FR-03</span></div><div class="space-y-space-xs pt-1"><div class="flex items-center gap-space-xs"><span class="font-code-badge text-[11px] px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant uppercase font-medium">User Intent</span><span class="font-body-md text-on-surface italic font-medium">“First apartment / COVID lockdown”</span></div><div class="grid grid-cols-2 gap-space-xs p-space-xs bg-surface-container-low rounded-lg text-body-sm"><div class="flex flex-col gap-0.5 p-space-xs bg-surface-container-lowest rounded"><span class="text-[11px] font-label-sm text-secondary font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Engine Index</span><span class="font-code-badge text-on-surface truncate">ISO 8601 Timestamps</span></div><div class="flex flex-col gap-0.5 p-space-xs bg-surface-container-lowest rounded"><span class="text-[11px] font-label-sm text-error font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span>Bottleneck Dropped</span><span class="font-code-badge text-tertiary truncate">Episodic Life Span (0%)</span></div></div></div><p class="font-body-sm text-body-sm text-on-surface-variant">No translation layer mapping conversational life-stage anchors into chronological date bounds.</p></div><div class="pt-space-xs border-t border-surface-container flex flex-col gap-1"><div class="flex justify-between items-center text-body-sm"><span class="font-label-sm text-on-surface-variant">Corpus Volume</span><span class="font-data-tabular font-semibold text-on-surface">312 records <span class="text-primary font-medium">(27.8%)</span></span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 27.8%"></div></div></div></div><div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow"><div class="space-y-space-sm"><div class="flex items-center justify-between"><div class="flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-primary/10 text-primary"><span class="material-symbols-outlined text-[14px]">text_snippet</span><span class="font-label-sm text-label-sm font-medium">OCR / Text Search</span></div><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">ID: FR-04</span></div><div class="space-y-space-xs pt-1"><div class="flex items-center gap-space-xs"><span class="font-code-badge text-[11px] px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant uppercase font-medium">User Intent</span><span class="font-body-md text-on-surface italic font-medium">“Electric bill receipt document”</span></div><div class="grid grid-cols-2 gap-space-xs p-space-xs bg-surface-container-low rounded-lg text-body-sm"><div class="flex flex-col gap-0.5 p-space-xs bg-surface-container-lowest rounded"><span class="text-[11px] font-label-sm text-secondary font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Label Collisions</span><span class="font-code-badge text-on-surface truncate">Outlet, Lamp photos</span></div><div class="flex flex-col gap-0.5 p-space-xs bg-surface-container-lowest rounded"><span class="text-[11px] font-label-sm text-error font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-error"></span>Bottleneck Dropped</span><span class="font-code-badge text-tertiary truncate">Document Intent (0%)</span></div></div></div><p class="font-body-sm text-body-sm text-on-surface-variant">Failure to distinguish physical hardware objects from transactional paperwork and receipts.</p></div><div class="pt-space-xs border-t border-surface-container flex flex-col gap-1"><div class="flex justify-between items-center text-body-sm"><span class="font-label-sm text-on-surface-variant">Corpus Volume</span><span class="font-data-tabular font-semibold text-on-surface">114 records <span class="text-primary font-medium">(10.1%)</span></span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-outline-variant rounded-full" style="width: 10.1%"></div></div></div></div></div>
+</div>
+<!-- Visual Artifact Strip: Corpus Breakdown & User Journey Dropoff -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<!-- Chart Card: Friction Share -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between gap-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Diagnostic Metric</span>
+<span class="font-code-badge text-code-badge text-primary font-medium">FIG-2.1</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface">Corpus Friction Distribution</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Proportion of flagged retrieval sessions across validated failure classes.</p>
+</div>
+<div class="py-space-md flex flex-col gap-space-sm">
+<!-- Item 1 -->
+<div class="space-y-1">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface">Chronological / Episodic Anchors</span>
+<span class="font-data-tabular font-medium text-on-surface">27.8%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary" style="width: 27.8%"></div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="space-y-1">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface">Subjective &amp; Spatial Descriptors</span>
+<span class="font-data-tabular font-medium text-on-surface">21.8%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 21.8%"></div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="space-y-1">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface">People &amp; Action Binding</span>
+<span class="font-data-tabular font-medium text-on-surface">17.1%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-inverse-primary" style="width: 17.1%"></div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="space-y-1">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface">OCR vs Object Ambiguity</span>
+<span class="font-data-tabular font-medium text-on-surface">10.1%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-outline-variant" style="width: 10.1%"></div>
+</div>
+</div>
+</div>
+<div class="text-[11px] font-body-sm text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span class="">Remaining 23.2% distributed across obscure visual edge queries.</span>
+</div>
+</div>
+<!-- Telemetry Pipeline Graphic (Inline SVG) -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between gap-space-md lg:col-span-2">
+<div class="flex items-center justify-between">
+<div class="space-y-space-xs">
+<span class="font-code-badge text-code-badge uppercase tracking-wider text-primary">System Mechanics</span>
+<h3 class="font-title-md text-title-md text-on-surface">Conjunctive Boolean Hard-Drop vs Semantic Relaxation</h3>
+</div>
+<span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-medium">SIMULATION</span>
+</div>
+<div class="relative w-full h-40 bg-surface-container-low rounded-lg p-space-md flex flex-col justify-between overflow-hidden">
+<svg class="w-full h-24" fill="none" preserveAspectRatio="none" viewBox="0 0 600 100">
+<!-- Gridlines -->
+<line stroke="#e5e8ee" stroke-dasharray="3 3" x1="0" x2="600" y1="20" y2="20"></line>
+<line stroke="#e5e8ee" stroke-dasharray="3 3" x1="0" x2="600" y1="50" y2="50"></line>
+<line stroke="#e5e8ee" stroke-dasharray="3 3" x1="0" x2="600" y1="80" y2="80"></line>
+<!-- Current Boolean Path (Cliff) -->
+<path d="M 20,20 L 140,25 L 280,32 L 400,92 L 580,95" fill="none" stroke="#dc392c" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="400" cy="92" fill="#dc392c" r="4"></circle>
+<!-- Proposed Semantic Soft-Relaxation Path -->
+<path d="M 20,20 L 140,25 L 280,32 L 400,45 L 580,50" fill="none" stroke="#1a73e8" stroke-dasharray="4 4" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="400" cy="45" fill="#1a73e8" r="4"></circle>
+</svg>
+<div class="flex items-center justify-between text-[11px] font-data-tabular text-on-surface-variant pt-1 border-t border-surface-container">
+<span class="">Query T1: [Sarah]</span>
+<span class="">Query T2: [Sarah jacket]</span>
+<span class="">Query T3: [Sarah yellow jacket]</span>
+<span class="text-error font-medium">T4: [...camping 2022] (Cliff)</span>
+<span class="text-primary font-medium">Relaxed Candidates (N=18)</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-lg text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-0.5 bg-tertiary-container inline-block"></span>
+<span class="">Current Boolean Logic (Immediate zero-recall cliff)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-0.5 bg-primary-container border-b border-dashed border-primary inline-block"></span>
+<span class="">Target Semantic Fallback (Weighted proximity ranking)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Evidence Cards (Empirical Case Findings) -->
+<div class="flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-xs px-space-xs">
+<div>
+<span class="font-code-badge text-code-badge uppercase tracking-wider text-primary">Case Study Evidence</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Section 3 · Empirical Case Findings</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Structured empirical PM schema documenting reproducible query breakdown conditions.</p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Schema V2.2 Compliant</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-xl"><div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col justify-between gap-space-md"><div class="space-y-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container font-medium text-on-surface">CASE REF: EVD-312</span><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-amber-50 text-amber-800 font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Recurring</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">Confidence: 0.94</span></div><div><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-medium">Observed User Breakdown</span><p class="font-title-md text-title-md text-on-surface mt-space-xs">Multi-attribute visual episode collapses into greedy single-token match.</p></div><div class="p-space-sm rounded-lg bg-surface border-l-4 border-primary text-on-surface font-body-sm italic"><span class="not-italic font-label-sm uppercase text-on-surface-variant mr-1">Query:</span>“Typed <span class="bg-amber-100 text-on-surface px-1 rounded not-italic font-data-tabular font-medium">red jacket yellow tent camping 2022</span> → Returned 400 random red jackets, 0 actual camping photos.”</div><div class="p-space-md bg-surface-container-low rounded-lg space-y-space-sm"><div class="flex justify-between items-center"><span class="font-label-sm uppercase tracking-wider text-primary font-medium">Parser Token Allocation (Dominance Bias)</span><span class="font-code-badge text-[11px] text-error font-medium">Joint Dropoff: 88%</span></div><div class="space-y-space-xs"><div class="space-y-1"><div class="flex justify-between text-body-sm"><span class="font-data-tabular text-on-surface font-medium">[red jacket]</span><span class="font-data-tabular text-primary font-semibold">88% Dominant Weight</span></div><div class="w-full h-2 rounded bg-surface-container-high overflow-hidden"><div class="h-full bg-primary rounded" style="width: 88%"></div></div></div><div class="space-y-1"><div class="flex justify-between text-body-sm"><span class="font-data-tabular text-on-surface">[yellow tent]</span><span class="font-data-tabular text-amber-700 font-medium">12% Marginal Weight</span></div><div class="w-full h-2 rounded bg-surface-container-high overflow-hidden"><div class="h-full bg-amber-600 rounded" style="width: 12%"></div></div></div><div class="space-y-1"><div class="flex justify-between text-body-sm"><span class="font-data-tabular text-on-surface-variant">[camping 2022]</span><span class="font-data-tabular text-error font-medium">0% Dropped Constraint</span></div><div class="w-full h-2 rounded bg-surface-container-high overflow-hidden"><div class="h-full bg-error rounded" style="width: 2%"></div></div></div></div></div><div class="flex items-center justify-between text-body-sm text-on-surface-variant"><div class="flex items-center gap-space-xs"><span class="font-label-sm text-on-surface-variant">Corpus Footprint:</span><span class="font-data-tabular font-medium text-on-surface">312 records (27.8%)</span></div><div class="flex gap-1"><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-red-50 text-red-700">Reddit 45%</span><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-emerald-50 text-emerald-800">GP Comm 31%</span></div></div></div><div class="pt-space-sm border-t border-surface-container flex items-center justify-between text-body-sm text-on-surface-variant"><span class="font-label-sm text-label-sm">Primary Failure Mode: Token Dominance</span><span class="font-code-badge text-code-badge text-primary bg-primary/10 px-space-xs rounded">SYNTHESIS CONFIRMED</span></div></div><div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col justify-between gap-space-md"><div class="space-y-space-md"><div class="flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-surface-container font-medium text-on-surface">CASE REF: EVD-455</span><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-amber-50 text-amber-800 font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Recurring</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">Confidence: 0.98</span></div><div><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-medium">Observed User Breakdown</span><p class="font-title-md text-title-md text-on-surface mt-space-xs">Zero-recall cliff forces users into fatiguing 15+ minute chronological manual scrolling.</p></div><div class="p-space-sm rounded-lg bg-surface border-l-4 border-error text-on-surface font-body-sm italic"><span class="not-italic font-label-sm uppercase text-on-surface-variant mr-1">Query:</span>“Add one detail too many, returns <span class="bg-amber-100 text-on-surface px-1 rounded not-italic font-data-tabular font-medium">No results found.</span> Spend 15 minutes manually scrolling timeline.”</div><div class="p-space-md bg-surface-container-low rounded-lg space-y-space-sm"><div class="flex justify-between items-center"><span class="font-label-sm uppercase tracking-wider text-primary font-medium">Conjunctive Modifier Dropoff Curve</span><span class="font-code-badge text-[11px] text-error font-medium">40.5% Abandonment</span></div><div class="grid grid-cols-4 gap-space-xs pt-1"><div class="flex flex-col items-center p-space-xs bg-surface-container-lowest rounded text-center"><span class="text-[11px] font-label-sm text-on-surface-variant">Term 1</span><span class="font-data-tabular font-bold text-on-surface text-[14px]">1,420</span><span class="text-[11px] text-secondary font-medium">100% recall</span></div><div class="flex flex-col items-center p-space-xs bg-surface-container-lowest rounded text-center"><span class="text-[11px] font-label-sm text-on-surface-variant">Term 2</span><span class="font-data-tabular font-bold text-on-surface text-[14px]">184</span><span class="text-[11px] text-secondary font-medium">13% recall</span></div><div class="flex flex-col items-center p-space-xs bg-surface-container-lowest rounded text-center"><span class="text-[11px] font-label-sm text-on-surface-variant">Term 3</span><span class="font-data-tabular font-bold text-amber-700 text-[14px]">14</span><span class="text-[11px] text-amber-700 font-medium">1.0% recall</span></div><div class="flex flex-col items-center p-space-xs bg-red-50 rounded text-center border border-error"><span class="text-[11px] font-label-sm text-error font-semibold">Term 4 (Cliff)</span><span class="font-data-tabular font-bold text-error text-[14px]">0</span><span class="text-[11px] text-error font-medium">Empty State</span></div></div></div><div class="flex items-center justify-between text-body-sm text-on-surface-variant"><div class="flex items-center gap-space-xs"><span class="font-label-sm text-on-surface-variant">Corpus Footprint:</span><span class="font-data-tabular font-medium text-on-surface">455 records (40.5%)</span></div><div class="flex gap-1"><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-red-50 text-red-700">Reddit 42%</span><span class="font-code-badge text-code-badge px-space-xs py-0.5 rounded bg-blue-50 text-blue-700">Play Store 23%</span></div></div></div><div class="pt-space-sm border-t border-surface-container flex items-center justify-between text-body-sm text-on-surface-variant"><span class="font-label-sm text-label-sm">Primary Failure Mode: Boolean Cliff</span><span class="font-code-badge text-code-badge text-primary bg-primary/10 px-space-xs rounded">SYNTHESIS CONFIRMED</span></div></div></div>
+</div>
+<!-- Section 4: Potential AI Opportunities (Exploration Areas) -->
+<div class="flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-xs px-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-code-badge text-code-badge uppercase tracking-wider text-primary">Forward Explorations</span>
+<span class="font-code-badge text-code-badge bg-surface-container-high px-space-xs rounded text-on-surface-variant">UNRANKED COHORT</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Section 4 · Potential AI Opportunities</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Empirically grounded exploration areas. Strict PM Constraint: Areas are presented without arbitrary ranking or vanity scores.
+          </p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4 Active Research Vectors</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg"><div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow"><div class="space-y-space-md"><div class="flex items-start justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0"><span class="material-symbols-outlined text-[20px]">psychology</span></div><div><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Exploration Area A</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Context-Aware Episodic Query Parsing</h3></div></div><span class="font-code-badge text-code-badge text-primary bg-primary/10 px-space-sm py-0.5 rounded flex-shrink-0 font-medium">OPP-EPISODIC</span></div><p class="font-body-md text-body-md text-on-surface">Bridges the structural gap between episodic human memory (atmosphere, social cues) and rigid scalar metadata indexing.</p><div class="grid grid-cols-2 gap-space-sm p-space-sm bg-surface-container-low rounded-lg"><div class="space-y-1"><div class="flex justify-between items-center text-[11px]"><span class="font-label-sm text-on-surface-variant uppercase">Friction Coverage</span><span class="font-data-tabular font-bold text-primary">27.8%</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 27.8%"></div></div><span class="font-data-tabular text-[11px] text-on-surface-variant">312 user feedback records</span></div><div class="space-y-1"><div class="flex justify-between items-center text-[11px]"><span class="font-label-sm text-on-surface-variant uppercase">Impact Potential</span><span class="font-data-tabular font-bold text-secondary">High</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-secondary rounded-full" style="width: 78%"></div></div><span class="font-data-tabular text-[11px] text-on-surface-variant">Addresses token dominance</span></div></div><div class="flex items-center gap-space-xs text-body-sm text-on-surface-variant"><span class="material-symbols-outlined text-[16px] text-error flex-shrink-0">link_off</span><span class="truncate font-body-sm">Dropped constraints &amp; temporal-episodic mismatch</span></div></div><div class="pt-space-xs border-t border-surface-container flex items-center justify-between text-body-sm"><span class="font-label-sm text-label-sm text-on-surface-variant">Domain: Multimodal Parsing</span><span class="font-code-badge text-[11px] px-space-xs py-0.5 rounded bg-surface-container text-on-surface font-medium">Target: Query Engine</span></div></div><div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow"><div class="space-y-space-md"><div class="flex items-start justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0"><span class="material-symbols-outlined text-[20px]">tune</span></div><div><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Exploration Area B</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Interactive Query Clarification &amp; Relaxation</h3></div></div><span class="font-code-badge text-code-badge text-primary bg-primary/10 px-space-sm py-0.5 rounded flex-shrink-0 font-medium">OPP-RELAXATION</span></div><p class="font-body-md text-body-md text-on-surface">Prevents the zero-recall cliff via proactive candidate relaxation chips and transparent constraint feedback rather than silent empty states.</p><div class="grid grid-cols-2 gap-space-sm p-space-sm bg-surface-container-low rounded-lg"><div class="space-y-1"><div class="flex justify-between items-center text-[11px]"><span class="font-label-sm text-on-surface-variant uppercase">Friction Coverage</span><span class="font-data-tabular font-bold text-primary">40.5%</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 40.5%"></div></div><span class="font-data-tabular text-[11px] text-on-surface-variant">455 abandonment records</span></div><div class="space-y-1"><div class="flex justify-between items-center text-[11px]"><span class="font-label-sm text-on-surface-variant uppercase">Impact Potential</span><span class="font-data-tabular font-bold text-secondary">Critical</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-secondary rounded-full" style="width: 92%"></div></div><span class="font-data-tabular text-[11px] text-on-surface-variant">Eliminates Boolean cliffs</span></div></div><div class="flex items-center gap-space-xs text-body-sm text-on-surface-variant"><span class="material-symbols-outlined text-[16px] text-error flex-shrink-0">link_off</span><span class="truncate font-body-sm">Over-constrained search queries &amp; zero-result cliff</span></div></div><div class="pt-space-xs border-t border-surface-container flex items-center justify-between text-body-sm"><span class="font-label-sm text-label-sm text-on-surface-variant">Domain: Interactive UX &amp; Fallbacks</span><span class="font-code-badge text-[11px] px-space-xs py-0.5 rounded bg-surface-container text-on-surface font-medium">Target: Search UI</span></div></div><div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow"><div class="space-y-space-md"><div class="flex items-start justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0"><span class="material-symbols-outlined text-[20px]">quick_reference_all</span></div><div><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Exploration Area C</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Utility vs Memory Intent Disambiguation</h3></div></div><span class="font-code-badge text-code-badge text-primary bg-primary/10 px-space-sm py-0.5 rounded flex-shrink-0 font-medium">OPP-INTENT-DISAMB</span></div><p class="font-body-md text-body-md text-on-surface">Classifies whether queries seek utilitarian documentation (receipts, serial numbers) vs emotional narrative moments (anniversary dinner).</p><div class="grid grid-cols-2 gap-space-sm p-space-sm bg-surface-container-low rounded-lg"><div class="space-y-1"><div class="flex justify-between items-center text-[11px]"><span class="font-label-sm text-on-surface-variant uppercase">Friction Coverage</span><span class="font-data-tabular font-bold text-primary">19.4%</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 19.4%"></div></div><span class="font-data-tabular text-[11px] text-on-surface-variant">218 document records</span></div><div class="space-y-1"><div class="flex justify-between items-center text-[11px]"><span class="font-label-sm text-on-surface-variant uppercase">Impact Potential</span><span class="font-data-tabular font-bold text-secondary">Medium</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-secondary rounded-full" style="width: 62%"></div></div><span class="font-data-tabular text-[11px] text-on-surface-variant">Solves OCR ambiguity</span></div></div><div class="flex items-center gap-space-xs text-body-sm text-on-surface-variant"><span class="material-symbols-outlined text-[16px] text-error flex-shrink-0">link_off</span><span class="truncate font-body-sm">OCR token collision with visual object classification</span></div></div><div class="pt-space-xs border-t border-surface-container flex items-center justify-between text-body-sm"><span class="font-label-sm text-label-sm text-on-surface-variant">Domain: Intent Classification</span><span class="font-code-badge text-[11px] px-space-xs py-0.5 rounded bg-surface-container text-on-surface font-medium">Target: Document Stack</span></div></div><div class="bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col justify-between gap-space-md hover:shadow-md transition-shadow"><div class="space-y-space-md"><div class="flex items-start justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0"><span class="material-symbols-outlined text-[20px]">filter_center_focus</span></div><div><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Exploration Area D</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Subjective Visual &amp; Spatial Matching</h3></div></div><span class="font-code-badge text-code-badge text-primary bg-primary/10 px-space-sm py-0.5 rounded flex-shrink-0 font-medium">OPP-SPATIAL</span></div><p class="font-body-md text-body-md text-on-surface">Enhances semantic visual embeddings for spatial relations and subjective modifiers ("vintage", "in the background", "child drawing").</p><div class="grid grid-cols-2 gap-space-sm p-space-sm bg-surface-container-low rounded-lg"><div class="space-y-1"><div class="flex justify-between items-center text-[11px]"><span class="font-label-sm text-on-surface-variant uppercase">Friction Coverage</span><span class="font-data-tabular font-bold text-primary">21.8%</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 21.8%"></div></div><span class="font-data-tabular text-[11px] text-on-surface-variant">245 descriptor records</span></div><div class="space-y-1"><div class="flex justify-between items-center text-[11px]"><span class="font-label-sm text-on-surface-variant uppercase">Impact Potential</span><span class="font-data-tabular font-bold text-secondary">High</span></div><div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden"><div class="h-full bg-secondary rounded-full" style="width: 74%"></div></div><span class="font-data-tabular text-[11px] text-on-surface-variant">Enables aesthetic search</span></div></div><div class="flex items-center gap-space-xs text-body-sm text-on-surface-variant"><span class="material-symbols-outlined text-[16px] text-error flex-shrink-0">link_off</span><span class="truncate font-body-sm">Distinguishes real objects vs drawings &amp; adjectives</span></div></div><div class="pt-space-xs border-t border-surface-container flex items-center justify-between text-body-sm"><span class="font-label-sm text-label-sm text-on-surface-variant">Domain: Spatial &amp; Style Vision</span><span class="font-code-badge text-[11px] px-space-xs py-0.5 rounded bg-surface-container text-on-surface font-medium">Target: Vision Encoder</span></div></div></div>
+</div>
+<!-- Bottom PM Handoff Banner -->
+<div class="bg-surface-container-high/60 p-space-xl rounded-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg mb-space-xl">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">task_alt</span>
+</div>
+<div class="space-y-space-xs max-w-3xl">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface">Discovery Milestone Complete</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-code-badge text-code-badge text-secondary font-medium">READY FOR PM PRD</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Research synthesis complete. Qualitative user interviews, telemetry root-cause validation, and AI photo-retrieval MVP execution occur in subsequent project phases outside this engine.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-auto flex-shrink-0">
+<button class="px-space-md py-space-sm bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md rounded-lg shadow-sm transition-all flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span class="">Export Synthesis JSON</span>
+</button>
+<button class="px-space-md py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-sm hover:bg-primary-container transition-all flex items-center gap-space-xs">
+<span class="">Hand Off to Phase 2</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div></main></div>
+
+</body></html>

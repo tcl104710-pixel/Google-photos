@@ -1,0 +1,32 @@
+## Problem Statement
+
+As people use Google Photos over many years, their libraries grow to contain thousands of photos, videos, screenshots, documents, and other visual memories. Finding a specific old photo becomes difficult when the user remembers the **memory or experience**, but cannot remember the **exact details needed to locate the photo**.
+
+For example, a user may remember:
+
+> “I’m looking for the photo from our Goa trip where we stopped at a small café after the beach.”
+
+The user may remember the people, place, activity, appearance, or context of the memory, but may not remember the exact date, café name, location, album, filename, or words that would produce a successful search.
+
+Google Photos already provides search capabilities such as people, places, objects, dates, text, and natural-language/Ask Photos experiences. Therefore, the problem is **not simply that users need a better search box**.
+
+The problem we need to investigate is the gap between **how people naturally remember a photo and how they are able to retrieve it from their photo library**.
+
+This project will investigate:
+
+* **What types of photos are difficult to retrieve when memory is incomplete?**
+* **What information do users naturally remember about those photos?**
+* **What information do they typically forget?**
+* **How do they describe or search for the photo?**
+* **How do they change their search when the first attempt fails?**
+* **Where exactly does the retrieval journey break down?**
+* **What workarounds do users use?**
+* **Which of these problems are already addressed by Google Photos, and which gaps remain?**
+
+We will answer these questions through analysis of publicly available user conversations and reviews, secondary research, and task-based user interviews.
+
+The objective is to identify a **specific, evidence-backed retrieval problem** rather than assume a solution in advance.
+
+Based on the validated problem, we will determine where AI can provide meaningful assistance and build an AI-native MVP that helps users retrieve a **specific photo from an available photo library using incomplete or vague memories**.
+
+The final measure of success is not whether the AI can understand a user's description. It is whether the user can **successfully retrieve the photo they were trying to find**.
