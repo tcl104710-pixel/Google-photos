@@ -1,4 +1,5 @@
 {
+  "name": "google-photos",
   "version": 2,
   "builds": [
     {
