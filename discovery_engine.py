@@ -83,18 +83,14 @@ with st.sidebar:
         except Exception as e:
             st.error(f"Error loading file: {e}")
 
-    # For MVP purposes, if no file is uploaded but the default processed dataset exists, load it.
+    # For the final presentation, automatically load the dataset so evaluators see it instantly!
     if st.session_state.dataset is None:
-        if st.button("Load Pre-Processed Normalized Data"):
-            try:
-                df = pd.read_csv("photo-retrieval-mvp/data/output/normalized_combined_feedback.csv")
-                st.session_state.dataset = df
-                # MOCK processed data for immediate visualization without waiting for Groq
-                st.session_state.processed_data = "loaded"
-                st.success("Loaded normalized dataset!")
-                st.rerun()
-            except Exception as e:
-                st.error("Default dataset not found. Please upload.")
+        try:
+            df = pd.read_csv("photo-retrieval-mvp/data/output/normalized_combined_feedback.csv")
+            st.session_state.dataset = df
+            st.session_state.processed_data = "loaded"
+        except Exception as e:
+            st.info("Upload a dataset to begin discovery.")
 
 # --- HELPER MOCK GENERATOR FOR VISUALS ---
 # Since running 516 rows through Groq sequentially takes 5+ mins, we generate aggregate mock statistics
