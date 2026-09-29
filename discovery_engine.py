@@ -87,7 +87,7 @@ with st.sidebar:
     if st.session_state.dataset is None:
         if st.button("Load Pre-Processed Normalized Data"):
             try:
-                df = pd.read_csv("data/output/normalized_combined_feedback.csv")
+                df = pd.read_csv("photo-retrieval-mvp/data/output/normalized_combined_feedback.csv")
                 st.session_state.dataset = df
                 # MOCK processed data for immediate visualization without waiting for Groq
                 st.session_state.processed_data = "loaded"
