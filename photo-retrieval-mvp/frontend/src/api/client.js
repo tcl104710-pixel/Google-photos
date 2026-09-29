@@ -1,8 +1,10 @@
 import axios from 'axios';
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 // Configure standard axios client for backend API
 export const api = axios.create({
-  baseURL: 'http://localhost:8000',
+  baseURL: API_BASE,
   withCredentials: true, // Important for session cookies
   headers: {
     'Content-Type': 'application/json',
@@ -10,7 +12,7 @@ export const api = axios.create({
 });
 
 export const auth = {
-  getLoginUrl: () => 'http://localhost:8000/auth/google',
+  getLoginUrl: () => `${API_BASE}/auth/google`,
   checkSyncStatus: async () => {
     const res = await api.get('/user/sync-status');
     return res.data;
