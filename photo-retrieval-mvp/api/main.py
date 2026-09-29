@@ -21,10 +21,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(auth.router)
-app.include_router(session.router)
-app.include_router(user.router)
+app.include_router(auth.router, prefix="/api")
+app.include_router(session.router, prefix="/api")
+app.include_router(user.router, prefix="/api")
 
-@app.get("/health", tags=["Health"])
+@app.get("/api/health", tags=["Health"])
 async def health() -> dict:
     return {"status": "ok", "version": "0.1.0"}
