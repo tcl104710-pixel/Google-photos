@@ -3,7 +3,10 @@
   "builds": [
     {
       "src": "photo-retrieval-mvp/frontend/package.json",
-      "use": "@vercel/vite"
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     },
     {
       "src": "photo-retrieval-mvp/api/main.py",
@@ -25,7 +28,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "photo-retrieval-mvp/frontend/$1"
+      "dest": "photo-retrieval-mvp/frontend/dist/$1"
     }
   ]
 }
