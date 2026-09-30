@@ -1,87 +1,90 @@
 import streamlit as st
 import os
-from streamlit_image_coordinates import streamlit_image_coordinates
+from PIL import Image
 
 # --- CONFIG & STYLING ---
 st.set_page_config(
     page_title="Google Photos Dashboard",
     page_icon="🔍",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
-# Remove all Streamlit padding, headers, footers, and margins
+# Clean up Streamlit chrome and ensure crisp white background for the content
 st.markdown("""
 <style>
-    .stApp > header {display: none;}
-    .block-container {
-        padding: 0rem !important; 
-        max-width: 100% !important;
-        background-color: #ffffff;
-    }
+    #MainMenu {visibility: hidden;}
     footer {display: none;}
+    .block-container {
+        padding-top: 1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        max-width: 100% !important;
+    }
+    /* Style the sidebar to look like the Stitch sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #ffffff;
+        border-right: 1px solid #e5e7eb;
+    }
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
+        font-size: 14px;
+        color: #1f2937;
+    }
 </style>
 """, unsafe_allow_html=True)
 
-views = [
-    "Overview",
-    "Dataset",
-    "Feedback",
-    "Behavior",
-    "Failures",
-    "Opportunities"
-]
+# --- VIEW DEFINITIONS ---
+views = {
+    "Overview": "google_photos_retrieval_discovery_overview",
+    "Research Dataset": "google_photos_research_dataset",
+    "User Feedback": "google_photos_user_feedback",
+    "Search Behavior": "google_photos_search_behavior",
+    "Retrieval Failures": "where_google_photos_retrieval_breaks",
+    "Evidence & Opportunities": "evidence_product_opportunities"
+}
 
-folders = [
-    "google_photos_retrieval_discovery_overview",
-    "google_photos_research_dataset",
-    "google_photos_user_feedback",
-    "google_photos_search_behavior",
-    "where_google_photos_retrieval_breaks",
-    "evidence_product_opportunities"
-]
+# --- REAL SIDEBAR WITH REAL BUTTONS ---
+st.sidebar.image("stitch_google_photos_retrieval_discovery_engine/stitch_google_photos_retrieval_discovery_engine/google_photos_retrieval_discovery_overview/screen.png", 
+                  use_container_width=False, width=30,
+                  caption=None) if False else None
 
-# State management for view navigation
-if 'current_view' not in st.session_state:
+st.sidebar.markdown("### 🔍 Google Photos Discovery")
+st.sidebar.markdown("*Retrieval Discovery Engine · PM Research*")
+st.sidebar.markdown("---")
+
+# Initialize session state
+if "current_view" not in st.session_state:
     st.session_state.current_view = "Overview"
 
-view_index = views.index(st.session_state.current_view)
-folder = folders[view_index]
+# Create a real, clickable button for each view
+for view_name in views.keys():
+    # Highlight the active view
+    if view_name == st.session_state.current_view:
+        button_type = "primary"
+    else:
+        button_type = "secondary"
+    
+    if st.sidebar.button(view_name, key=f"btn_{view_name}", use_container_width=True, type=button_type):
+        st.session_state.current_view = view_name
+        st.rerun()
+
+st.sidebar.markdown("---")
+st.sidebar.caption("Dashboard powered by Stitch Product Intelligence Engine")
+
+# --- MAIN CONTENT: CROPPED IMAGE (sidebar removed) ---
+folder = views[st.session_state.current_view]
 stitch_dir = "stitch_google_photos_retrieval_discovery_engine/stitch_google_photos_retrieval_discovery_engine"
 img_path = os.path.join(stitch_dir, folder, "screen.png")
 
 if os.path.exists(img_path):
-    value = streamlit_image_coordinates(
-        img_path,
-        key=f"img_{st.session_state.current_view}",
-        use_column_width=True
-    )
-
-    if value is not None:
-        x = value["x"]
-        y = value["y"]
-        
-        # The sidebar buttons are in the left ~450px of the image
-        if x < 450:
-            if 200 <= y <= 400:
-                st.session_state.current_view = "Overview"
-                st.rerun()
-            elif 401 <= y <= 540:
-                st.session_state.current_view = "Dataset"
-                st.rerun()
-            elif 541 <= y <= 660:
-                st.session_state.current_view = "Feedback"
-                st.rerun()
-            elif 661 <= y <= 770:
-                st.session_state.current_view = "Behavior"
-                st.rerun()
-            elif 771 <= y <= 890:
-                st.session_state.current_view = "Failures"
-                st.rerun()
-            elif 891 <= y <= 1100:
-                st.session_state.current_view = "Opportunities"
-                st.rerun()
-            else:
-                st.toast(f"Click detected at X={x}, Y={y}")
+    img = Image.open(img_path)
+    w, h = img.size
+    
+    # Crop out the left sidebar (approx 235px) from the original 1600px image
+    # This removes the drawn-on sidebar so we don't have duplicate navigation
+    cropped = img.crop((235, 0, w, h))
+    
+    # Display the cropped content at full width — no height restrictions, fully scrollable
+    st.image(cropped, use_container_width=True)
 else:
-    st.error("Image not found.")
+    st.error(f"Image not found for '{st.session_state.current_view}'.")
