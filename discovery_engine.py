@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import base64
 
 # --- CONFIG & STYLING ---
 st.set_page_config(
@@ -9,65 +10,82 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Minimal CSS to maintain dark theme and ensure perfect image clarity
+# Completely remove all Streamlit padding, headers, footers, and margins
+# so the image fills the entire screen like a native web app!
 st.markdown("""
 <style>
-    :root {
-        --bg-color: #0f172a;
-        --text-primary: #f8fafc;
+    .stApp > header {display: none;}
+    .block-container {
+        padding: 0rem !important; 
+        max-width: 100% !important;
+        background-color: #ffffff;
     }
-    .stApp {
-        background-color: var(--bg-color);
-        color: var(--text-primary);
-        font-family: 'Inter', 'Roboto', sans-serif;
-    }
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {background: transparent !important;}
+    footer {display: none;}
     
-    /* Force tabs to be larger and easier to click */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-    }
-    .stTabs [data-baseweb="tab"] {
-        height: 50px;
-        white-space: pre-wrap;
-        background-color: rgba(255,255,255,0.05);
-        border-radius: 4px 4px 0px 0px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+    /* Ensure no scrollbars exist from streamlit margins */
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
     }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🔍 Google Photos Dashboard")
-st.markdown("Navigate through the product intelligence findings using the tabs below. Scroll down to see the full content of each page.")
+# Define the views and their corresponding folders
+views = [
+    "Overview",
+    "Dataset",
+    "Feedback",
+    "Behavior",
+    "Failures",
+    "Opportunities"
+]
 
-slide_mapping = {
-    "Discovery Overview": "google_photos_retrieval_discovery_overview",
-    "Research Dataset": "google_photos_research_dataset",
-    "Search Behavior": "google_photos_search_behavior",
-    "User Feedback": "google_photos_user_feedback",
-    "Retrieval Breaks": "where_google_photos_retrieval_breaks",
-    "Opportunities": "evidence_product_opportunities"
-}
+folders = [
+    "google_photos_retrieval_discovery_overview",
+    "google_photos_research_dataset",
+    "google_photos_user_feedback",
+    "google_photos_search_behavior",
+    "where_google_photos_retrieval_breaks",
+    "evidence_product_opportunities"
+]
 
-# --- TABS ---
-# Create a tab for each item
-tab_names = list(slide_mapping.keys())
-tabs = st.tabs(tab_names)
+# Get the current view from the URL query parameter (defaults to Overview)
+current_view = st.query_params.get("view", "Overview")
+if current_view not in views:
+    current_view = "Overview"
 
+view_index = views.index(current_view)
+folder = folders[view_index]
 stitch_dir = "stitch_google_photos_retrieval_discovery_engine/stitch_google_photos_retrieval_discovery_engine"
+img_path = os.path.join(stitch_dir, folder, "screen.png")
 
-for i, tab_name in enumerate(tab_names):
-    with tabs[i]:
-        folder = slide_mapping[tab_name]
-        img_path = os.path.join(stitch_dir, folder, "screen.png")
+if os.path.exists(img_path):
+    # Read the image and convert to Base64
+    with open(img_path, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode()
         
-        if os.path.exists(img_path):
-            # Using native Streamlit image rendering with use_container_width=True.
-            # This allows the page to scroll infinitely down, completely eliminating any 
-            # bounding box cut-offs while maintaining 100% original clarity!
-            st.image(img_path, use_container_width=True)
-        else:
-            st.error(f"Image not found for {tab_name}.")
+    # We create an SVG image map overlaid EXACTLY on top of the fake buttons in the image.
+    # When the user clicks the fake button on the PNG, they actually click an invisible HTML link
+    # that reloads the Streamlit app with the new query parameter!
+    
+    # We use generous bounding boxes to ensure clicks register perfectly.
+    y_start = 425
+    y_step = 85
+    
+    rects = ""
+    for i, v in enumerate(views):
+        rects += f'<a target="_self" href="/?view={v.replace(" ", "%20")}"><rect x="30" y="{y_start + i*y_step}" width="370" height="{y_step}" fill="transparent" style="cursor: pointer;" /></a>\n'
+
+    # Render the interactive image seamlessly
+    html_code = f'''
+    <div style="position: relative; width: 100%; max-width: 1600px; margin: 0 auto; background-color: #ffffff;">
+        <svg viewBox="0 0 1600 1907" style="position: absolute; top: 0; left: 0; width: 100%; height: auto; z-index: 10;">
+            {rects}
+        </svg>
+        <img src="data:image/png;base64,{encoded_string}" style="width: 100%; height: auto; display: block;" />
+    </div>
+    '''
+    st.markdown(html_code, unsafe_allow_html=True)
+else:
+    st.error(f"Image not found.")
