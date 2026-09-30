@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Photos Dashboard</title>
+    <meta name="description" content="Google Photos Retrieval Discovery Dashboard — Evidence-backed product intelligence on how users search for photos and where the current system fails.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ========== LEFT NAVIGATION PANEL ========== */
+        .nav-panel {
+            width: 260px;
+            min-width: 260px;
+            background: #ffffff;
+            border-right: 1px solid #e2e8f0;
+            padding: 24px 16px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow-y: auto;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-header {
+            margin-bottom: 32px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+
+        .nav-logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #4285f4, #34a853, #fbbc05, #ea4335);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .nav-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a202c;
+            line-height: 1.3;
+        }
+
+        .nav-subtitle {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 2px;
+            padding-left: 42px;
+        }
+
+        .nav-divider {
+            height: 1px;
+            background: #e2e8f0;
+            margin: 16px 0;
+        }
+
+        /* Navigation Buttons */
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 11px 14px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            color: #64748b;
+            font-family: 'Inter', sans-serif;
+            font-size: 13.5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            margin-bottom: 4px;
+            text-align: left;
+        }
+
+        .nav-btn:hover {
+            background: #f1f5f9;
+            color: #334155;
+        }
+
+        .nav-btn.active {
+            background: #1a73e8;
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
+        }
+
+        .nav-btn .icon {
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .nav-footer {
+            margin-top: auto;
+            padding-top: 24px;
+        }
+
+        .nav-footer p {
+            font-size: 11px;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .content {
+            margin-left: 260px;
+            flex: 1;
+            min-height: 100vh;
+            background: #f0f2f5;
+            padding: 0;
+        }
+
+        .content-image {
+            width: 100%;
+            display: block;
+            /* Crisp image rendering for text clarity */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        /* Hide all views by default */
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .nav-panel {
+                width: 200px;
+                min-width: 200px;
+            }
+            .content {
+                margin-left: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- LEFT NAVIGATION PANEL -->
+    <nav class="nav-panel">
+        <div class="nav-header">
+            <div class="nav-logo">
+                <div class="nav-logo-icon">G</div>
+                <span class="nav-title">Google Photos Discovery</span>
+            </div>
+            <p class="nav-subtitle">Retrieval Discovery Engine · PM Research</p>
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <button class="nav-btn active" data-view="overview" onclick="switchView('overview')">
+            <span class="icon">📊</span> Overview
+        </button>
+        <button class="nav-btn" data-view="dataset" onclick="switchView('dataset')">
+            <span class="icon">📁</span> Research Dataset
+        </button>
+        <button class="nav-btn" data-view="feedback" onclick="switchView('feedback')">
+            <span class="icon">💬</span> User Feedback
+        </button>
+        <button class="nav-btn" data-view="behavior" onclick="switchView('behavior')">
+            <span class="icon">🔍</span> Search Behavior
+        </button>
+        <button class="nav-btn" data-view="failures" onclick="switchView('failures')">
+            <span class="icon">⚠️</span> Retrieval Failures
+        </button>
+        <button class="nav-btn" data-view="opportunities" onclick="switchView('opportunities')">
+            <span class="icon">💡</span> Evidence & Opportunities
+        </button>
+
+        <div class="nav-footer">
+            <div class="nav-divider"></div>
+            <p>Dashboard powered by Stitch Product Intelligence Engine</p>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+        <div id="view-overview" class="view active">
+            <img src="images/overview.png" alt="Discovery Overview" class="content-image" loading="eager">
+        </div>
+        <div id="view-dataset" class="view">
+            <img src="images/dataset.png" alt="Research Dataset" class="content-image" loading="lazy">
+        </div>
+        <div id="view-feedback" class="view">
+            <img src="images/feedback.png" alt="User Feedback" class="content-image" loading="lazy">
+        </div>
+        <div id="view-behavior" class="view">
+            <img src="images/behavior.png" alt="Search Behavior" class="content-image" loading="lazy">
+        </div>
+        <div id="view-failures" class="view">
+            <img src="images/failures.png" alt="Retrieval Failures" class="content-image" loading="lazy">
+        </div>
+        <div id="view-opportunities" class="view">
+            <img src="images/opportunities.png" alt="Evidence & Opportunities" class="content-image" loading="lazy">
+        </div>
+    </main>
+
+    <script>
+        function switchView(viewName) {
+            // Hide all views
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            // Show selected view
+            document.getElementById('view-' + viewName).classList.add('active');
+
+            // Update nav button styles
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.nav-btn[data-view="' + viewName + '"]').classList.add('active');
+
+            // Scroll to top of content
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+    </script>
+</body>
+</html>
