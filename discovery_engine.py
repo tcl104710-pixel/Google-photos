@@ -85,12 +85,12 @@ st.markdown("""
 # Each entry: display_name -> (folder, crop_left_px)
 # crop_left_px = exact pixel to crop the drawn sidebar from the original image
 views = {
-    "📊 Overview": ("google_photos_retrieval_discovery_overview", 390),
-    "📁 Research Dataset": ("google_photos_research_dataset", 395),
-    "💬 User Feedback": ("google_photos_user_feedback", 190),
-    "🔍 Search Behavior": ("google_photos_search_behavior", 190),
-    "⚠️ Retrieval Failures": ("where_google_photos_retrieval_breaks", 372),
-    "💡 Evidence & Opportunities": ("evidence_product_opportunities", 424),
+    "📊 Overview": ("google_photos_retrieval_discovery_overview", 380),
+    "📁 Research Dataset": ("google_photos_research_dataset", 370),
+    "💬 User Feedback": ("google_photos_user_feedback", 180),
+    "🔍 Search Behavior": ("google_photos_search_behavior", 178),
+    "⚠️ Retrieval Failures": ("where_google_photos_retrieval_breaks", 350),
+    "💡 Evidence & Opportunities": ("evidence_product_opportunities", 395),
 }
 
 # Initialize session state
