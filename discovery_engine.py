@@ -61,9 +61,19 @@ stitch_dir = "stitch_google_photos_retrieval_discovery_engine/stitch_google_phot
 folder = slide_mapping[selected_view]
 img_path = os.path.join(stitch_dir, folder, "screen.png")
 
+import base64
+
 if os.path.exists(img_path):
-    # use_container_width=True guarantees the image scales dynamically to the width of the screen 
-    # without cutting off or cropping the text at the bottom.
-    st.image(img_path, use_container_width=True)
+    # Convert image to base64 so we can render it natively in HTML without Streamlit quirks
+    with open(img_path, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode()
+    
+    # Render using pure HTML/CSS to guarantee 100% visibility and zero cropping
+    html_code = f'''
+    <div style="display: flex; justify-content: center; width: 100%;">
+        <img src="data:image/png;base64,{encoded_string}" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.5);">
+    </div>
+    '''
+    st.markdown(html_code, unsafe_allow_html=True)
 else:
     st.error(f"Image not found for {selected_view}.")
