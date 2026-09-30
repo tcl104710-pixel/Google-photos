@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '';
+let API_BASE = import.meta.env.VITE_API_BASE_URL || '';
+if (API_BASE && !API_BASE.startsWith('http')) {
+  API_BASE = 'https://' + API_BASE;
+}
 
 // Configure standard axios client for backend API
 export const api = axios.create({
