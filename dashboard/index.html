@@ -1,251 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Photos Dashboard</title>
-    <meta name="description" content="Google Photos Retrieval Discovery Dashboard — Evidence-backed product intelligence on how users search for photos and where the current system fails.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Google Photos Retrieval Discovery Dashboard — evidence on how users search for photos and where the current system fails.">
+<title>Google Photos Retrieval Discovery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F6F8; --panel:#FFFFFF; --ink:#1C2026; --muted:#5B6470; --line:#E3E6EB;
+  --blue:#1A73E8; --blue-soft:#E8F0FE; --red:#D93025; --red-soft:#FCE8E6;
+  --amber:#E37400; --amber-soft:#FEF3E0; --green:#188038; --green-soft:#E6F4EA;
+  --radius-lg:16px; --radius-sm:8px;
+  font-family:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-size:15px;line-height:1.55;font-variant-numeric:tabular-nums}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f8fafc;
-            color: #1e293b;
-            display: flex;
-            min-height: 100vh;
-        }
+/* Layout */
+.app{display:grid;grid-template-columns:264px 1fr;min-height:100vh}
+aside{background:var(--panel);border-right:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}
+.brand{display:flex;gap:12px;align-items:center;padding:0 8px 22px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.logo{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none;
+  background:conic-gradient(from 45deg,#EA4335 0 25%,#FBBC04 0 50%,#34A853 0 75%,#4285F4 0);color:#fff;font-weight:800}
+.logo span{background:#fff;color:var(--ink);width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:13px}
+.brand h1{font-size:16px;line-height:1.25;font-weight:700}
+.brand p{font-size:12.5px;color:var(--muted)}
+nav{display:flex;flex-direction:column;gap:2px}
+nav button{all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:10px;color:var(--muted);font-weight:500;font-size:14.5px}
+nav button:hover{background:var(--bg);color:var(--ink)}
+nav button[aria-current="page"]{background:var(--blue-soft);color:var(--blue);font-weight:700}
+nav svg{width:18px;height:18px;flex:none}
+.foot{margin-top:auto;font-size:12px;color:var(--muted);padding:12px 8px 0;border-top:1px solid var(--line)}
 
-        /* ========== LEFT NAVIGATION PANEL ========== */
-        .nav-panel {
-            width: 260px;
-            min-width: 260px;
-            background: #ffffff;
-            border-right: 1px solid #e2e8f0;
-            padding: 24px 16px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            overflow-y: auto;
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-        }
+main{padding:28px 36px 56px;min-width:0}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.crumb{font-size:13px;color:var(--muted)}
+.crumb b{color:var(--ink);font-weight:600}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.pill.demo{background:var(--amber-soft);border-color:#F6D7A7;color:#8A4B00}
 
-        .nav-header {
-            margin-bottom: 32px;
-        }
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:24px;flex-wrap:wrap}
+.head h2{font-size:30px;line-height:1.15;font-weight:800;letter-spacing:-.02em}
+.head p{color:var(--muted);max-width:62ch;margin-top:6px}
+.btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;font-weight:600;font-size:14px;padding:10px 16px;border-radius:10px}
+.btn:hover{background:#1765CC}
+.btn.ghost{background:var(--panel);color:var(--ink);border:1px solid var(--line)}
 
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 4px;
-        }
+section.view{display:none}
+section.view.active{display:block}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-lg);padding:22px 24px;margin-bottom:20px}
+.panel h3{font-size:18px;font-weight:700}
+.panel .sub{color:var(--muted);font-size:14px;margin-top:2px}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
 
-        .nav-logo-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #4285f4, #34a853, #fbbc05, #ea4335);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            color: white;
-            font-weight: 700;
-        }
+/* KPI strip */
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-bottom:20px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-lg);padding:18px;border-top:4px solid var(--blue)}
+.kpi.red{border-top-color:var(--red)} .kpi.green{border-top-color:var(--green)} .kpi.amber{border-top-color:var(--amber)}
+.kpi .label{font-size:13.5px;color:var(--muted);font-weight:500;display:flex;justify-content:space-between;gap:6px}
+.kpi .num{font-size:32px;font-weight:800;letter-spacing:-.02em;margin:4px 0 6px}
+.kpi.red .num{color:var(--red)}
+.kpi .note{font-size:13px;color:var(--muted);line-height:1.4}
+.tag{font-size:12px;font-weight:700;padding:2px 7px;border-radius:6px;background:var(--blue-soft);color:var(--blue);white-space:nowrap}
+.tag.red{background:var(--red-soft);color:var(--red)} .tag.amber{background:var(--amber-soft);color:#A15200} .tag.green{background:var(--green-soft);color:var(--green)}
 
-        .nav-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1a202c;
-            line-height: 1.3;
-        }
+/* Journey map — the signature element */
+.alert{display:inline-flex;gap:8px;align-items:center;font-size:13.5px;font-weight:600;color:var(--red);background:var(--red-soft);padding:7px 12px;border-radius:10px}
+.journey{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}
+.stage{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px;background:#fff;position:relative}
+.stage .n{font-size:12.5px;font-weight:700;color:var(--muted)}
+.stage h4{font-size:15px;line-height:1.3;font-weight:700}
+.stage p{font-size:13px;color:var(--muted);line-height:1.4}
+.heat{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:auto}
+.heat i{display:block;height:100%}
+.stage .f{font-size:12.5px;font-weight:600}
+.stage.hot{border-color:#F4B5AE;background:#FFF8F7}
+.stage.warm{border-color:#F6D7A7;background:#FFFBF4}
+.flow-bar{display:flex;height:40px;border-radius:10px;overflow:hidden;margin-top:18px;font-size:12.5px;font-weight:700;color:#fff}
+.flow-bar div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
 
-        .nav-subtitle {
-            font-size: 12px;
-            color: #94a3b8;
-            margin-top: 2px;
-            padding-left: 42px;
-        }
+/* Bars */
+.bars{display:flex;flex-direction:column;gap:12px}
+.bar-row{display:grid;grid-template-columns:minmax(120px,190px) 1fr 70px;gap:12px;align-items:center;font-size:14px}
+.bar-row .track{height:12px;background:var(--bg);border-radius:6px;overflow:hidden}
+.bar-row .track i{display:block;height:100%;border-radius:6px;background:var(--blue)}
+.bar-row .val{text-align:right;font-weight:700}
+.bar-row .val small{color:var(--muted);font-weight:500}
 
-        .nav-divider {
-            height: 1px;
-            background: #e2e8f0;
-            margin: 16px 0;
-        }
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-weight:600;color:var(--muted);font-size:13px;padding:10px 12px;border-bottom:1px solid var(--line)}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.table-wrap{overflow-x:auto}
 
-        /* Navigation Buttons */
-        .nav-btn {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            width: 100%;
-            padding: 11px 14px;
-            border: none;
-            border-radius: 8px;
-            background: transparent;
-            color: #64748b;
-            font-family: 'Inter', sans-serif;
-            font-size: 13.5px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.15s ease;
-            margin-bottom: 4px;
-            text-align: left;
-        }
+.quote{border-left:3px solid var(--blue);padding:10px 14px;background:var(--bg);border-radius:0 10px 10px 0}
+.quote p{font-size:14.5px}
+.quote .meta{font-size:12.5px;color:var(--muted);margin-top:6px}
+.quote.red{border-left-color:var(--red)} .quote.amber{border-left-color:var(--amber)}
 
-        .nav-btn:hover {
-            background: #f1f5f9;
-            color: #334155;
-        }
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.chip{all:unset;cursor:pointer;font-size:13.5px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
 
-        .nav-btn.active {
-            background: #1a73e8;
-            color: #ffffff;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
-        }
+.opp{border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;background:#fff}
+.opp h4{font-size:16.5px;font-weight:700}
+.opp .row{display:flex;gap:8px;flex-wrap:wrap}
+.opp dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13.5px}
+.opp dt{color:var(--muted)}
+.opp dd{font-weight:600}
 
-        .nav-btn .icon {
-            font-size: 16px;
-            width: 20px;
-            text-align: center;
-            flex-shrink: 0;
-        }
+.matrix{position:relative;height:300px;border-left:2px solid var(--line);border-bottom:2px solid var(--line);margin:8px 0 28px 28px;background:
+  linear-gradient(to right,transparent 49.8%,var(--line) 50%,transparent 50.2%),
+  linear-gradient(to bottom,transparent 49.8%,var(--line) 50%,transparent 50.2%)}
+.matrix .pt{position:absolute;transform:translate(-50%,50%);background:var(--blue);color:#fff;font-weight:700;font-size:13px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center}
+.matrix .ax{position:absolute;font-size:12.5px;color:var(--muted);font-weight:600}
+.matrix .q{position:absolute;font-size:12.5px;color:var(--muted)}
 
-        .nav-footer {
-            margin-top: auto;
-            padding-top: 24px;
-        }
+.callout{background:var(--blue-soft);border-radius:12px;padding:14px 16px;font-size:14px;color:#123E7C}
+.small{font-size:13px;color:var(--muted)}
 
-        .nav-footer p {
-            font-size: 11px;
-            color: #94a3b8;
-            line-height: 1.5;
-        }
-
-        /* ========== MAIN CONTENT ========== */
-        .content {
-            margin-left: 260px;
-            flex: 1;
-            min-height: 100vh;
-            background: #f0f2f5;
-            padding: 0;
-        }
-
-        .content-image {
-            max-width: 100%;
-            width: auto;
-            display: block;
-            /* Crisp image rendering for text clarity */
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-
-        /* Hide all views by default */
-        .view {
-            display: none;
-        }
-
-        .view.active {
-            display: block;
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 768px) {
-            .nav-panel {
-                width: 200px;
-                min-width: 200px;
-            }
-            .content {
-                margin-left: 200px;
-            }
-        }
-    </style>
+@media (max-width:1280px){.journey{grid-template-columns:repeat(4,minmax(0,1fr))}.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){
+  .app{grid-template-columns:1fr}
+  aside{position:sticky;top:0;z-index:5;height:auto;padding:12px;border-right:0;border-bottom:1px solid var(--line)}
+  .brand{padding:0 4px 10px;margin-bottom:8px}
+  nav{flex-direction:row;overflow-x:auto;gap:4px}
+  nav button{white-space:nowrap;padding:8px 12px}
+  .foot{display:none}
+  main{padding:20px 16px 40px}
+  .g2,.g3{grid-template-columns:1fr}
+  .journey{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .head h2{font-size:24px}
+}
+@media (prefers-reduced-motion:no-preference){.heat i,.track i{transition:width .6s ease}}
+</style>
 </head>
 <body>
-    <!-- LEFT NAVIGATION PANEL -->
-    <nav class="nav-panel">
-        <div class="nav-header">
-            <div class="nav-logo">
-                <div class="nav-logo-icon">G</div>
-                <span class="nav-title">Google Photos Discovery</span>
-            </div>
-            <p class="nav-subtitle">Retrieval Discovery Engine · PM Research</p>
-        </div>
-
-        <div class="nav-divider"></div>
-
-        <button class="nav-btn active" data-view="overview" onclick="switchView('overview')">
-            <span class="icon">📊</span> Overview
-        </button>
-        <button class="nav-btn" data-view="dataset" onclick="switchView('dataset')">
-            <span class="icon">📁</span> Research Dataset
-        </button>
-        <button class="nav-btn" data-view="feedback" onclick="switchView('feedback')">
-            <span class="icon">💬</span> User Feedback
-        </button>
-        <button class="nav-btn" data-view="behavior" onclick="switchView('behavior')">
-            <span class="icon">🔍</span> Search Behavior
-        </button>
-        <button class="nav-btn" data-view="failures" onclick="switchView('failures')">
-            <span class="icon">⚠️</span> Retrieval Failures
-        </button>
-        <button class="nav-btn" data-view="opportunities" onclick="switchView('opportunities')">
-            <span class="icon">💡</span> Evidence & Opportunities
-        </button>
-
-        <div class="nav-footer">
-            <div class="nav-divider"></div>
-            <p>Dashboard powered by Stitch Product Intelligence Engine</p>
-        </div>
+<div class="app">
+  <aside>
+    <div class="brand">
+      <div class="logo" aria-hidden="true"><span>G</span></div>
+      <div><h1>Google Photos Discovery</h1><p>Retrieval research dashboard</p></div>
+    </div>
+    <nav aria-label="Sections">
+      <button data-view="overview" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Overview</button>
+      <button data-view="dataset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>Research dataset</button>
+      <button data-view="feedback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>User feedback</button>
+      <button data-view="behavior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>Search behavior</button>
+      <button data-view="failures"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01"/></svg>Retrieval failures</button>
+      <button data-view="opportunities"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>Evidence and opportunities</button>
     </nav>
+    <div class="foot">Core Experience PM case study. Figures are demo data built from a public-feedback sample.</div>
+  </aside>
 
-    <!-- MAIN CONTENT -->
-    <main class="content">
-        <div id="view-overview" class="view active">
-            <img src="images/overview.png" alt="Discovery Overview" class="content-image" loading="eager">
-        </div>
-        <div id="view-dataset" class="view">
-            <img src="images/dataset.png" alt="Research Dataset" class="content-image" loading="lazy">
-        </div>
-        <div id="view-feedback" class="view">
-            <img src="images/feedback.png" alt="User Feedback" class="content-image" loading="lazy">
-        </div>
-        <div id="view-behavior" class="view">
-            <img src="images/behavior.png" alt="Search Behavior" class="content-image" loading="lazy">
-        </div>
-        <div id="view-failures" class="view">
-            <img src="images/failures.png" alt="Retrieval Failures" class="content-image" loading="lazy">
-        </div>
-        <div id="view-opportunities" class="view">
-            <img src="images/opportunities.png" alt="Evidence & Opportunities" class="content-image" loading="lazy">
-        </div>
-    </main>
+  <main>
+    <div class="topbar">
+      <div class="crumb">PM research workspace / <b id="crumb">Overview</b></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span class="pill"><span class="dot"></span>Data refreshed</span>
+        <span class="pill demo">Demo data</span>
+      </div>
+    </div>
 
-    <script>
-        function switchView(viewName) {
-            // Hide all views
-            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-            // Show selected view
-            document.getElementById('view-' + viewName).classList.add('active');
+    <!-- OVERVIEW -->
+    <section class="view active" id="overview">
+      <div class="head">
+        <div>
+          <h2>Google Photos retrieval discovery</h2>
+          <p>Where users struggle to find photos they remember but can't describe precisely, based on 1,842 public feedback records.</p>
+        </div>
+        <button class="btn" data-go="failures">See where search fails</button>
+      </div>
 
-            // Update nav button styles
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelector('.nav-btn[data-view="' + viewName + '"]').classList.add('active');
+      <div class="kpis">
+        <div class="kpi"><div class="label">Feedback analyzed</div><div class="num">1,842</div><div class="note">Complaints and questions from 5 public platforms</div></div>
+        <div class="kpi"><div class="label">About finding photos <span class="tag">61.0%</span></div><div class="num">1,124</div><div class="note">Explicitly about search and recall</div></div>
+        <div class="kpi green"><div class="label">Sources</div><div class="num">5</div><div class="note">Reddit, Help Community, Play Store, App Store, YouTube</div></div>
+        <div class="kpi red"><div class="label">Search failed <span class="tag red">40.5%</span></div><div class="num">746</div><div class="note">Photo existed in the library but search didn't surface it</div></div>
+        <div class="kpi amber"><div class="label">Had to rephrase <span class="tag amber">26.5%</span></div><div class="num">489</div><div class="note">Several rewrites, or gave up and scrolled</div></div>
+      </div>
 
-            // Scroll to top of content
-            window.scrollTo({ top: 0, behavior: 'instant' });
-        }
-    </script>
+      <div class="panel">
+        <div class="panel-head">
+          <div><h3>The retrieval journey, stage by stage</h3><p class="sub">Share of friction reports tied to each step of finding a photo</p></div>
+          <span class="alert">⚠ Stages 3 and 4 account for 60% of reported friction</span>
+        </div>
+        <div class="journey">
+          <div class="stage"><span class="n">Stage 1</span><h4>Remember the photo</h4><p>Only fragments come back: a color, a place, who was there.</p><div class="heat"><i style="width:4%;background:var(--green)"></i></div><span class="f" style="color:var(--green)">Baseline</span></div>
+          <div class="stage"><span class="n">Stage 2</span><h4>Open the app</h4><p>Lands on the main grid of recent photos.</p><div class="heat"><i style="width:4%;background:var(--green)"></i></div><span class="f" style="color:var(--green)">Minimal</span></div>
+          <div class="stage warm"><span class="n">Stage 3</span><h4>Type a search</h4><p>The memory is vague; the search expects exact keywords.</p><div class="heat"><i style="width:22%;background:var(--amber)"></i></div><span class="f" style="color:#A15200">22% of friction · vocabulary gap</span></div>
+          <div class="stage hot"><span class="n">Stage 4</span><h4>Scan results</h4><p>The right photo is buried under near-matches and clutter.</p><div class="heat"><i style="width:38%;background:var(--red)"></i></div><span class="f" style="color:var(--red)">38% of friction · biggest failure point</span></div>
+          <div class="stage"><span class="n">Stage 5</span><h4>Judge the grid</h4><p>Visually checks each candidate thumbnail.</p><div class="heat"><i style="width:6%;background:var(--amber)"></i></div><span class="f" style="color:var(--muted)">Mental effort</span></div>
+          <div class="stage warm"><span class="n">Stage 6</span><h4>Rephrase</h4><p>Rewrites the query, often several times.</p><div class="heat"><i style="width:26%;background:var(--amber)"></i></div><span class="f" style="color:#A15200">2.8 attempts on average</span></div>
+          <div class="stage hot"><span class="n">Stage 7</span><h4>Find it or give up</h4><p>Success, or falls back to endless scrolling.</p><div class="heat"><i style="width:40.5%;background:var(--red)"></i></div><span class="f" style="color:var(--red)">40.5% abandon search</span></div>
+        </div>
+        <div class="flow-bar" role="img" aria-label="Outcome of 1,124 retrieval attempts: 41 percent found on first try, 19 percent found after rephrasing, 40.5 percent gave up search">
+          <div style="width:40.6%;background:var(--green)">Found first try 41%</div>
+          <div style="width:18.9%;background:var(--amber)">Found after rephrasing 19%</div>
+          <div style="width:40.5%;background:var(--red)">Gave up on search 40.5%</div>
+        </div>
+      </div>
+
+      <div class="grid g2">
+        <div class="panel">
+          <h3>What this tells us</h3>
+          <p class="sub" style="margin-bottom:14px">Three takeaways for the product team</p>
+          <div class="bars" style="gap:14px">
+            <div class="quote red"><p><b>Ranking is the bigger problem than understanding.</b> Users often type something close enough, but the right photo sits too far down the results.</p></div>
+            <div class="quote amber"><p><b>People search the way they remember.</b> "Blue dress, beach, before the pandemic" mixes object, place and time, and keyword search handles each poorly on its own.</p></div>
+            <div class="quote"><p><b>Rephrasing is a hidden cost.</b> Nearly 3 attempts per search means users are doing the system's job.</p></div>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Where the feedback came from</h3>
+          <p class="sub" style="margin-bottom:16px">Records per platform</p>
+          <div class="bars" id="src-bars-mini"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATASET -->
+    <section class="view" id="dataset">
+      <div class="head"><div><h2>Research dataset</h2><p>How the 1,842 records were collected, filtered and coded before analysis.</p></div></div>
+      <div class="grid g3" style="margin-bottom:20px">
+        <div class="kpi"><div class="label">Collection window</div><div class="num" style="font-size:24px">Jan 2024 – Aug 2026</div><div class="note">Public posts and reviews only</div></div>
+        <div class="kpi green"><div class="label">Kept after filtering</div><div class="num">1,124</div><div class="note">Records about finding or recalling photos</div></div>
+        <div class="kpi amber"><div class="label">Coded manually</div><div class="num">300</div><div class="note">Sample used to check automatic tagging</div></div>
+      </div>
+      <div class="grid g2">
+        <div class="panel">
+          <h3>Records by source</h3><p class="sub" style="margin-bottom:16px">All 1,842 records</p>
+          <div class="bars" id="src-bars"></div>
+        </div>
+        <div class="panel">
+          <h3>From raw posts to usable evidence</h3><p class="sub" style="margin-bottom:16px">Each step narrows the dataset</p>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Step</th><th>What happened</th><th>Records</th></tr></thead>
+            <tbody>
+              <tr><td>Collect</td><td>Pulled posts and reviews that mention Google Photos search</td><td><b>1,842</b></td></tr>
+              <tr><td>Filter</td><td>Kept only feedback about finding or recalling a photo</td><td><b>1,124</b></td></tr>
+              <tr><td>Tag</td><td>Labeled each record with a theme and journey stage</td><td><b>1,124</b></td></tr>
+              <tr><td>Classify outcome</td><td>Marked whether search failed while the photo existed</td><td><b>746</b></td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Limits of this data</h3>
+        <p class="sub" style="margin-top:8px;max-width:75ch">Public feedback skews toward frustrated users, so failure rates here are higher than in the whole user base. Treat the numbers as a map of where pain concentrates, not as product-wide metrics. Interviews and MVP testing are used to validate the patterns.</p>
+      </div>
+    </section>
+
+    <!-- FEEDBACK -->
+    <section class="view" id="feedback">
+      <div class="head"><div><h2>User feedback</h2><p>What the 1,124 retrieval-related records talk about, grouped into themes.</p></div></div>
+      <div class="panel">
+        <h3>Themes in retrieval feedback</h3><p class="sub" style="margin-bottom:16px">Share of 1,124 records</p>
+        <div class="bars" id="theme-bars"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><div><h3>Representative comments</h3><p class="sub">Paraphrased from public posts to protect authors</p></div></div>
+        <div class="filters" id="q-filters"></div>
+        <div class="grid g2" id="quotes"></div>
+      </div>
+    </section>
+
+    <!-- BEHAVIOR -->
+    <section class="view" id="behavior">
+      <div class="head"><div><h2>Search behavior</h2><p>How people phrase searches and what they do when the first try fails.</p></div></div>
+      <div class="kpis" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+        <div class="kpi"><div class="label">Words per search</div><div class="num">2.3</div><div class="note">Short queries, even for complex memories</div></div>
+        <div class="kpi amber"><div class="label">Attempts per search</div><div class="num">2.8</div><div class="note">When the first result misses</div></div>
+        <div class="kpi red"><div class="label">Switch to scrolling</div><div class="num">31%</div><div class="note">Scroll the timeline after search fails</div></div>
+        <div class="kpi green"><div class="label">Mix several cues</div><div class="num">44%</div><div class="note">Describe a person, place and time together</div></div>
+      </div>
+      <div class="grid g2">
+        <div class="panel">
+          <h3>What people search for</h3><p class="sub" style="margin-bottom:16px">Type of cue in the first search</p>
+          <div class="bars" id="query-bars"></div>
+        </div>
+        <div class="panel">
+          <h3>A typical failed search</h3><p class="sub" style="margin-bottom:16px">Reconstructed from a common pattern in the feedback</p>
+          <div class="table-wrap"><table>
+            <thead><tr><th>Try</th><th>Search</th><th>Result</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>"birthday cake"</td><td>312 photos, target not on first screen</td></tr>
+              <tr><td>2</td><td>"mom birthday cake"</td><td>Wrong year shown first</td></tr>
+              <tr><td>3</td><td>"mom cake 2019"</td><td>No date match, photo lacks location</td></tr>
+              <tr><td>4</td><td>Scrolls the timeline</td><td>Found after about 4 minutes</td></tr>
+            </tbody>
+          </table></div>
+          <div class="callout" style="margin-top:14px">The user remembered enough to find it. The system couldn't combine "mom", "cake" and "before we moved" into one search.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAILURES -->
+    <section class="view" id="failures">
+      <div class="head"><div><h2>Retrieval failures</h2><p>746 cases where the photo was in the library but search didn't bring it up.</p></div></div>
+      <div class="grid g2">
+        <div class="panel">
+          <h3>Why search failed</h3><p class="sub" style="margin-bottom:16px">Primary cause per failure</p>
+          <div class="bars" id="fail-bars"></div>
+        </div>
+        <div class="panel">
+          <h3>Failures by journey stage</h3><p class="sub" style="margin-bottom:16px">Where in the journey the user got stuck</p>
+          <div class="bars" id="stage-bars"></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Failure modes in detail</h3><p class="sub" style="margin-bottom:12px">Ordered by number of cases</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Failure mode</th><th>What the user experiences</th><th>Cases</th><th>Severity</th></tr></thead>
+          <tbody id="fail-table"></tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <!-- OPPORTUNITIES -->
+    <section class="view" id="opportunities">
+      <div class="head"><div><h2>Evidence and opportunities</h2><p>Product bets that follow from the evidence, with the metric each should move.</p></div></div>
+      <div class="grid g2" id="opps" style="margin-bottom:20px"></div>
+      <div class="panel">
+        <h3>Impact vs effort</h3><p class="sub">Numbers match the opportunity cards above</p>
+        <div class="matrix" id="matrix">
+          <span class="ax" style="left:-28px;top:50%;transform:rotate(-90deg) translateX(50%);transform-origin:left">Impact</span>
+          <span class="ax" style="bottom:-24px;left:50%;transform:translateX(-50%)">Effort</span>
+          <span class="q" style="left:8px;top:8px">Do first</span>
+          <span class="q" style="right:8px;top:8px">Plan carefully</span>
+          <span class="q" style="left:8px;bottom:8px">Quick wins</span>
+          <span class="q" style="right:8px;bottom:8px">Deprioritize</span>
+        </div>
+      </div>
+      <div class="callout"><b>Recommended MVP:</b> start with opportunity 1, multi-cue memory search, since it targets stages 3 and 4, which hold 60% of the friction. Success metric: raise first-try success from 41% to 55% in testing with at least 3 users.</div>
+    </section>
+  </main>
+</div>
+
+<script>
+const fmt = n => n.toLocaleString('en-US');
+function bars(el, rows, total, color){
+  const max = Math.max(...rows.map(r=>r[1]));
+  document.getElementById(el).innerHTML = rows.map(([label,v,c]) =>
+    `<div class="bar-row"><span>${label}</span><div class="track"><i style="width:${(v/max*100).toFixed(1)}%;background:${c||color||'var(--blue)'}"></i></div><span class="val">${fmt(v)} <small>${(v/total*100).toFixed(0)}%</small></span></div>`
+  ).join('');
+}
+const sources = [["Reddit",612],["Google Photos Help Community",438],["Google Play reviews",391],["App Store reviews",247],["YouTube comments",154]];
+bars('src-bars', sources, 1842); bars('src-bars-mini', sources, 1842);
+bars('theme-bars', [
+  ["Vague memory, can't describe it",312,"var(--red)"],["Wrong or merged faces",198],["Date or location wrong",176],
+  ["Clutter buries results",164,"var(--amber)"],["Text inside photos",121],["Duplicates",88],["Other",65,"var(--muted)"]], 1124);
+bars('query-bars', [["Object or scene",382],["Person's name",236],["Place",191],["Date or event",135],["Full description",123,"var(--green)"],["Text in the photo",57]], 1124);
+bars('fail-bars', [["Words don't match",268,"var(--red)"],["Correct photo ranked low",201,"var(--red)"],["Wrong person matched",112,"var(--amber)"],["Missing date or place",94,"var(--amber)"],["Screenshots and memes",71]], 746);
+bars('stage-bars', [["Type a search",164,"var(--amber)"],["Scan results",284,"var(--red)"],["Judge the grid",45],["Rephrase",194,"var(--amber)"],["Give up",59,"var(--red)"]], 746);
+
+const fails = [
+  ["Words don't match","Searches \"sunset boat\" but the photo is tagged as ocean and sky",268,"High","red"],
+  ["Correct photo ranked low","The right photo is there, but 200 near-matches come first",201,"High","red"],
+  ["Wrong person matched","Relatives or kids at different ages are grouped together",112,"Medium","amber"],
+  ["Missing date or place","Scanned or shared photos have no date or location",94,"Medium","amber"],
+  ["Screenshots and memes","Saved images crowd out real photos in results",71,"Low","green"]];
+document.getElementById('fail-table').innerHTML = fails.map(f=>`<tr><td><b>${f[0]}</b></td><td>${f[1]}</td><td><b>${f[2]}</b></td><td><span class="tag ${f[4]}">${f[3]}</span></td></tr>`).join('');
+
+const quotes = [
+  ["Vague memory","I know exactly what the photo looks like. I just can't find the words Photos wants.","Reddit","red"],
+  ["Vague memory","It was a red umbrella at some market, maybe 2018. Searching \"umbrella\" gives me 400 results.","Help Community","red"],
+  ["Ranking","The photo was result number 60. Why are random screenshots above it?","Play Store","amber"],
+  ["Ranking","Search finds it eventually but I have to scroll forever through the results.","App Store","amber"],
+  ["Faces","It thinks my son at 3 and my nephew at 5 are the same person.","Reddit",""],
+  ["Faces","Searching my dad's name misses half of his photos.","YouTube",""],
+  ["Clutter","Every search for \"receipt\" or \"menu\" is buried in screenshots.","Play Store","amber"],
+  ["Clutter","I wish I could hide screenshots from search results.","Help Community","amber"]];
+const cats = ["All", ...new Set(quotes.map(q=>q[0]))];
+const qf = document.getElementById('q-filters');
+function renderQuotes(c){
+  document.getElementById('quotes').innerHTML = quotes.filter(q=>c==="All"||q[0]===c)
+    .map(q=>`<div class="quote ${q[3]}"><p>${q[1]}</p><div class="meta">${q[0]} / ${q[2]}</div></div>`).join('');
+  qf.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed', b.textContent===c));
+}
+qf.innerHTML = cats.map(c=>`<button class="chip">${c}</button>`).join('');
+qf.addEventListener('click', e=>{ if(e.target.matches('.chip')) renderQuotes(e.target.textContent); });
+renderQuotes("All");
+
+const opps = [
+  {t:"Multi-cue memory search",d:"Let people describe what they remember (\"mom, cake, old apartment\") and combine person, object, place and time in one search.",ev:"Vague memory is the top theme (312 records); 44% of searches mix cues.",m:"First-try success rate",imp:"High",eff:"Medium",x:55,y:85},
+  {t:"Refine results instead of retyping",d:"Show suggestion chips (a person, a year, a place) under results so users narrow down rather than start over.",ev:"2.8 attempts per search; 489 users had to rephrase.",m:"Attempts per successful search",imp:"High",eff:"Low",x:25,y:75},
+  {t:"Hide screenshots and clutter",d:"A one-tap filter to keep screenshots, memes and documents out of photo search.",ev:"164 records on clutter; 71 failures caused by it.",m:"Rank of the target photo",imp:"Medium",eff:"Low",x:20,y:45},
+  {t:"Recover when search fails",d:"When results miss, offer \"jump to around this time\" and \"photos like this\" instead of leaving users to scroll.",ev:"31% fall back to scrolling; 40.5% abandon search.",m:"Search abandonment rate",imp:"Medium",eff:"Medium",x:60,y:55}];
+document.getElementById('opps').innerHTML = opps.map((o,i)=>`<div class="opp"><div class="row"><span class="tag">Opportunity ${i+1}</span><span class="tag ${o.imp==='High'?'green':'amber'}">${o.imp} impact</span><span class="tag ${o.eff==='Low'?'green':'amber'}">${o.eff} effort</span></div><h4>${o.t}</h4><p class="small" style="color:var(--ink);font-size:14px">${o.d}</p><dl><dt>Evidence</dt><dd>${o.ev}</dd><dt>Metric</dt><dd>${o.m}</dd></dl></div>`).join('');
+document.getElementById('matrix').insertAdjacentHTML('beforeend', opps.map((o,i)=>`<span class="pt" title="${o.t}" style="left:${o.x}%;bottom:${o.y}%">${i+1}</span>`).join(''));
+
+// Navigation
+const titles = {overview:"Overview",dataset:"Research dataset",feedback:"User feedback",behavior:"Search behavior",failures:"Retrieval failures",opportunities:"Evidence and opportunities"};
+function show(id){
+  if(!titles[id]) id="overview";
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active', v.id===id));
+  document.querySelectorAll('nav button').forEach(b=>{
+    if(b.dataset.view===id) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current');
+  });
+  document.getElementById('crumb').textContent = titles[id];
+  document.title = titles[id] + " | Google Photos Retrieval Discovery";
+  window.scrollTo({top:0});
+}
+document.querySelectorAll('[data-view],[data-go]').forEach(b=>b.addEventListener('click',()=>{ location.hash = b.dataset.view||b.dataset.go; }));
+window.addEventListener('hashchange',()=>show(location.hash.slice(1)));
+show(location.hash.slice(1));
+</script>
 </body>
 </html>
