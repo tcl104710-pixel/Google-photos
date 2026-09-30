@@ -7,13 +7,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc g++ curl libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-COPY pyproject.toml .
-RUN pip install --no-cache-dir -e ".[dev]"
+# Upgrade pip and install build dependencies
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
 
-# Copy application source
+# Copy application source first
 COPY . .
+
+# Install Python dependencies without editable mode
+RUN pip install --no-cache-dir .
 
 EXPOSE 8000
 
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
