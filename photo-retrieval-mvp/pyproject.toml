@@ -66,6 +66,10 @@ dev = [
     "pre-commit>=3.7.1",
 ]
 
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["api*", "core*", "integrations*", "llm*", "models*"]
+
 [tool.ruff]
 line-length = 100
 target-version = "py311"
