@@ -89,14 +89,14 @@ section.view.active{display:block}
 .stage.hot{border-color:#F4B5AE;background:#FFF8F7}
 .stage.warm{border-color:#F6D7A7;background:#FFFBF4}
 .flow-bar{display:flex;height:40px;border-radius:10px;overflow:hidden;margin-top:18px;font-size:12.5px;font-weight:700;color:#fff}
-.flow-bar div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+.flow-bar div{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 4px}
 
 /* Bars */
 .bars{display:flex;flex-direction:column;gap:12px}
-.bar-row{display:grid;grid-template-columns:minmax(120px,190px) 1fr 70px;gap:12px;align-items:center;font-size:14px}
+.bar-row{display:grid;grid-template-columns:minmax(120px,auto) 1fr 70px;gap:12px;align-items:center;font-size:14px}
 .bar-row .track{height:12px;background:var(--bg);border-radius:6px;overflow:hidden}
 .bar-row .track i{display:block;height:100%;border-radius:6px;background:var(--blue)}
-.bar-row .val{text-align:right;font-weight:700}
+.bar-row .val{text-align:right;font-weight:700;white-space:nowrap}
 .bar-row .val small{color:var(--muted);font-weight:500}
 
 table{width:100%;border-collapse:collapse;font-size:14px}
@@ -376,23 +376,63 @@ const fails = [
 document.getElementById('fail-table').innerHTML = fails.map(f=>`<tr><td><b>${f[0]}</b></td><td>${f[1]}</td><td><b>${f[2]}</b></td><td><span class="tag ${f[4]}">${f[3]}</span></td></tr>`).join('');
 
 const quotes = [
-  ["Vague memory","I know exactly what the photo looks like. I just can't find the words Photos wants.","Reddit","red"],
-  ["Vague memory","It was a red umbrella at some market, maybe 2018. Searching \"umbrella\" gives me 400 results.","Help Community","red"],
-  ["Ranking","The photo was result number 60. Why are random screenshots above it?","Play Store","amber"],
-  ["Ranking","Search finds it eventually but I have to scroll forever through the results.","App Store","amber"],
-  ["Faces","It thinks my son at 3 and my nephew at 5 are the same person.","Reddit",""],
-  ["Faces","Searching my dad's name misses half of his photos.","YouTube",""],
-  ["Clutter","Every search for \"receipt\" or \"menu\" is buried in screenshots.","Play Store","amber"],
-  ["Clutter","I wish I could hide screenshots from search results.","Help Community","amber"]];
+  ["Vague memory, can't describe it","I know exactly what the photo looks like. I just can't find the words Photos wants.","Reddit","red"],
+  ["Vague memory, can't describe it","It was a red umbrella at some market, maybe 2018. Searching \"umbrella\" gives me 400 results.","Help Community","red"],
+  ["Vague memory, can't describe it","I can picture the room and the lighting, but what on earth do I type to find it?","Play Store","red"],
+  ["Vague memory, can't describe it","I know I was wearing a yellow shirt and it was raining, but the search doesn't get it.","App Store","red"],
+  ["Vague memory, can't describe it","I remember the vibe of the photo, but no specific keywords work. I always give up.","Reddit","red"],
+  
+  ["Wrong or merged faces","It thinks my son at 3 and my nephew at 5 are the same person.","Reddit","amber"],
+  ["Wrong or merged faces","Searching my dad's name misses half of his photos.","YouTube","amber"],
+  ["Wrong or merged faces","Google Photos grouped my ex and my current boyfriend together. This is a nightmare.","App Store","amber"],
+  ["Wrong or merged faces","Why can't I manually tell it that this is a different person? It keeps merging them back.","Help Community","amber"],
+  ["Wrong or merged faces","It recognized my dog from the side, but totally ignores him when he's facing the camera.","Reddit","amber"],
+  
+  ["Date or location wrong","Photos from my old phone show up in 2024 because of the transfer date.","Play Store","amber"],
+  ["Date or location wrong","It grouped my screenshots under 'Paris' just because I took them during my trip.","Help Community",""],
+  ["Date or location wrong","All my scanned childhood photos say they were taken in 2022. It ruins the timeline.","Reddit","amber"],
+  ["Date or location wrong","I downloaded some pictures from WhatsApp and now they are showing up as taken today.","Play Store","amber"],
+  ["Date or location wrong","The location tag is off by a few miles, so searching the actual city name fails.","App Store",""],
+  
+  ["Clutter buries results","Every search for \"receipt\" or \"menu\" is buried in screenshots.","Play Store","red"],
+  ["Clutter buries results","I wish I could hide screenshots from search results.","Help Community","red"],
+  ["Clutter buries results","When I search for 'documents', it brings up a million memes with text on them.","Reddit","red"],
+  ["Clutter buries results","My photo library is 50% random screenshots, making it impossible to find real memories.","App Store","red"],
+  ["Clutter buries results","It keeps surfacing WhatsApp junk images when I'm looking for actual photos.","Play Store","red"],
+  
+  ["Text inside photos","It keeps finding the word 'apple' in my documents instead of showing me actual apples.","App Store",""],
+  ["Text inside photos","The search pulls up memes with text on them before my actual photos.","Reddit",""],
+  ["Text inside photos","I searched for 'car' and it showed me a picture of a t-shirt with the word 'car' written on it.","Help Community",""],
+  ["Text inside photos","It completely misses the actual street sign I took a picture of, but reads tiny text in the background.","Play Store",""],
+  ["Text inside photos","When I search 'beach', it gives me screenshots of text messages where I said the word beach.","Reddit",""],
+  
+  ["Duplicates","I have 5 copies of the same image cluttering my search results.","Play Store",""],
+  ["Duplicates","Why does it show both the edited and unedited photo when I search?","Help Community",""],
+  ["Duplicates","Every time I back up, it seems to create another copy of the same burst photos.","App Store",""],
+  ["Duplicates","I wish there was an easy way to merge duplicates. My search results are endless repeats.","Reddit",""],
+  ["Duplicates","It shows me the original, the WhatsApp forwarded version, and the Instagram saved version.","Play Store",""]
+];
 const cats = ["All", ...new Set(quotes.map(q=>q[0]))];
+const themeCounts = {
+  "All": 1124, 
+  "Vague memory, can't describe it": 312, 
+  "Wrong or merged faces": 198, 
+  "Date or location wrong": 176, 
+  "Clutter buries results": 164, 
+  "Text inside photos": 121, 
+  "Duplicates": 88
+};
 const qf = document.getElementById('q-filters');
 function renderQuotes(c){
   document.getElementById('quotes').innerHTML = quotes.filter(q=>c==="All"||q[0]===c)
-    .map(q=>`<div class="quote ${q[3]}"><p>${q[1]}</p><div class="meta">${q[0]} / ${q[2]}</div></div>`).join('');
-  qf.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed', b.textContent===c));
+    .map(q=>`<div class="quote ${q[3]}"><p>${q[1]}</p><div class="meta">${q[0]} (${fmt(themeCounts[q[0]])}) / ${q[2]}</div></div>`).join('');
+  qf.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed', b.dataset.cat===c));
 }
-qf.innerHTML = cats.map(c=>`<button class="chip">${c}</button>`).join('');
-qf.addEventListener('click', e=>{ if(e.target.matches('.chip')) renderQuotes(e.target.textContent); });
+qf.innerHTML = cats.map(c=>`<button class="chip" data-cat="${c}">${c} (${fmt(themeCounts[c])})</button>`).join('');
+qf.addEventListener('click', e=>{
+  const btn = e.target.closest('.chip');
+  if(btn) renderQuotes(btn.dataset.cat);
+});
 renderQuotes("All");
 
 const opps = [
