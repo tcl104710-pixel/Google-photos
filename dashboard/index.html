@@ -131,10 +131,16 @@ tr:last-child td{border-bottom:0}
 .callout{background:var(--blue-soft);border-radius:12px;padding:14px 16px;font-size:14px;color:#123E7C}
 .small{font-size:13px;color:var(--muted)}
 
-.chat-mockup{display:flex;flex-direction:column;gap:12px;background:#fff;padding:20px;border-radius:12px;border:1px solid #C1D5F6}
-.msg{padding:10px 14px;border-radius:12px;font-size:14.5px;max-width:85%;line-height:1.5}
+.chat-mockup{display:flex;flex-direction:column;gap:12px;background:#fff;padding:20px;border-radius:12px;border:1px solid #C1D5F6;min-height:240px;overflow-y:auto}
+.msg{padding:10px 14px;border-radius:12px;font-size:14.5px;max-width:85%;line-height:1.5;animation:fadeUp 0.3s ease-out forwards}
 .msg.user{background:var(--bg);color:var(--ink);align-self:flex-end;border-bottom-right-radius:4px}
 .msg.ai{background:var(--blue);color:#fff;align-self:flex-start;border-bottom-left-radius:4px}
+.typing{display:inline-block;padding:2px 0}
+.typing span{display:inline-block;width:6px;height:6px;background-color:#fff;border-radius:50%;margin:0 2px;animation:bounce 1.4s infinite ease-in-out both}
+.typing span:nth-child(1){animation-delay:-0.32s}
+.typing span:nth-child(2){animation-delay:-0.16s}
+@keyframes bounce{0%,80%,100%{transform:scale(0)} 40%{transform:scale(1)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)}}
 
 @media (max-width:1280px){.journey{grid-template-columns:repeat(4,minmax(0,1fr))}.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:900px){
@@ -357,14 +363,14 @@ tr:last-child td{border-bottom:0}
       <div class="callout"><b>Recommended MVP:</b> start with opportunity 1, multi-cue memory search, since it targets stages 3 and 4, which hold 60% of the friction. Success metric: raise first-try success from 41% to 55% in testing with at least 3 users.</div>
       
       <div class="panel" style="margin-top:20px;background:var(--blue-soft);border-color:#C1D5F6">
-        <h3>Vision for the MVP: AI Memory Assistant</h3>
-        <p class="sub" style="margin-bottom:20px">Instead of leaving users to guess the exact keywords, the system should guide them by asking clarifying questions to bridge the vocabulary gap.</p>
-        <div class="chat-mockup">
-          <div class="msg user">I'm looking for a photo from my trip to Paris, but I don't remember where exactly.</div>
-          <div class="msg ai">I found 142 photos from your Paris trip. To narrow it down, do you remember who was with you, or what you were wearing?</div>
-          <div class="msg user">I was wearing a red jacket and holding a coffee.</div>
-          <div class="msg ai">Found it! 📸 <span style="display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.25);border-radius:6px;margin-left:4px;font-size:12px;font-weight:600">Matched: "red jacket", "coffee cup", "Paris"</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px">
+          <div>
+            <h3 style="margin-bottom:2px">Vision for the MVP: AI Memory Assistant</h3>
+            <p class="sub" style="margin:0;max-width:80ch">Instead of leaving users to guess the exact keywords, the system should guide them by asking clarifying questions to bridge the vocabulary gap.</p>
+          </div>
+          <button class="btn ghost" onclick="playChat()" style="font-size:13px;padding:6px 12px;white-space:nowrap;background:#fff;border-color:#C1D5F6;color:#123E7C">Replay demo</button>
         </div>
+        <div class="chat-mockup" id="demo-chat"></div>
       </div>
     </section>
   </main>
@@ -476,8 +482,53 @@ function show(id){
   window.scrollTo({top:0});
 }
 document.querySelectorAll('[data-view],[data-go]').forEach(b=>b.addEventListener('click',()=>{ location.hash = b.dataset.view||b.dataset.go; }));
-window.addEventListener('hashchange',()=>show(location.hash.slice(1)));
+window.addEventListener('hashchange',()=>{
+  const id = location.hash.slice(1);
+  show(id);
+  if(id === 'opportunities') playChat();
+});
 show(location.hash.slice(1));
+if(location.hash.slice(1) === 'opportunities' || location.hash.slice(1) === '') playChat();
+
+let chatTimeout = null;
+function playChat() {
+  const chat = document.getElementById('demo-chat');
+  if(!chat) return;
+  chat.innerHTML = '';
+  if(chatTimeout) clearTimeout(chatTimeout);
+  
+  const steps = [
+    { type: 'user', text: "I'm looking for a photo from my trip to Paris, but I don't remember where exactly.", delay: 800 },
+    { type: 'ai', text: "I found 142 photos from your Paris trip. To narrow it down, do you remember who was with you, or what you were wearing?", delay: 1500, typing: 1800 },
+    { type: 'user', text: "I was wearing a red jacket and holding a coffee.", delay: 3500 },
+    { type: 'ai', text: 'Found it! 📸 <span style="display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.25);border-radius:6px;margin-left:4px;font-size:12px;font-weight:600">Matched: "red jacket", "coffee cup", "Paris"</span>', delay: 1500, typing: 1000 }
+  ];
+
+  let currentDelay = 0;
+  steps.forEach(step => {
+    currentDelay += step.delay;
+    const t = setTimeout(() => {
+      if(step.type === 'ai') {
+        const typingEl = document.createElement('div');
+        typingEl.className = 'msg ai';
+        typingEl.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+        chat.appendChild(typingEl);
+        chat.scrollTop = chat.scrollHeight;
+        
+        setTimeout(() => {
+          typingEl.innerHTML = step.text;
+        }, step.typing);
+      } else {
+        const msgEl = document.createElement('div');
+        msgEl.className = `msg ${step.type}`;
+        msgEl.innerHTML = step.text;
+        chat.appendChild(msgEl);
+        chat.scrollTop = chat.scrollHeight;
+      }
+    }, currentDelay);
+    if(step === steps[steps.length-1]) chatTimeout = t;
+  });
+}
 </script>
 </body>
 </html>
