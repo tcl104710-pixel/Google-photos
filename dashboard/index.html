@@ -131,6 +131,11 @@ tr:last-child td{border-bottom:0}
 .callout{background:var(--blue-soft);border-radius:12px;padding:14px 16px;font-size:14px;color:#123E7C}
 .small{font-size:13px;color:var(--muted)}
 
+.chat-mockup{display:flex;flex-direction:column;gap:12px;background:#fff;padding:20px;border-radius:12px;border:1px solid #C1D5F6}
+.msg{padding:10px 14px;border-radius:12px;font-size:14.5px;max-width:85%;line-height:1.5}
+.msg.user{background:var(--bg);color:var(--ink);align-self:flex-end;border-bottom-right-radius:4px}
+.msg.ai{background:var(--blue);color:#fff;align-self:flex-start;border-bottom-left-radius:4px}
+
 @media (max-width:1280px){.journey{grid-template-columns:repeat(4,minmax(0,1fr))}.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:900px){
   .app{grid-template-columns:1fr}
@@ -350,6 +355,17 @@ tr:last-child td{border-bottom:0}
         </div>
       </div>
       <div class="callout"><b>Recommended MVP:</b> start with opportunity 1, multi-cue memory search, since it targets stages 3 and 4, which hold 60% of the friction. Success metric: raise first-try success from 41% to 55% in testing with at least 3 users.</div>
+      
+      <div class="panel" style="margin-top:20px;background:var(--blue-soft);border-color:#C1D5F6">
+        <h3>Vision for the MVP: AI Memory Assistant</h3>
+        <p class="sub" style="margin-bottom:20px">Instead of leaving users to guess the exact keywords, the system should guide them by asking clarifying questions to bridge the vocabulary gap.</p>
+        <div class="chat-mockup">
+          <div class="msg user">I'm looking for a photo from my trip to Paris, but I don't remember where exactly.</div>
+          <div class="msg ai">I found 142 photos from your Paris trip. To narrow it down, do you remember who was with you, or what you were wearing?</div>
+          <div class="msg user">I was wearing a red jacket and holding a coffee.</div>
+          <div class="msg ai">Found it! 📸 <span style="display:inline-block;padding:2px 8px;background:rgba(255,255,255,0.25);border-radius:6px;margin-left:4px;font-size:12px;font-weight:600">Matched: "red jacket", "coffee cup", "Paris"</span></div>
+        </div>
+      </div>
     </section>
   </main>
 </div>
