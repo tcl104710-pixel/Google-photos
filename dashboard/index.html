@@ -481,21 +481,13 @@ function show(id){
   document.title = titles[id] + " | Google Photos Retrieval Discovery";
   window.scrollTo({top:0});
 }
-document.querySelectorAll('[data-view],[data-go]').forEach(b=>b.addEventListener('click',()=>{ location.hash = b.dataset.view||b.dataset.go; }));
-window.addEventListener('hashchange',()=>{
-  const id = location.hash.slice(1);
-  show(id);
-  if(id === 'opportunities') playChat();
-});
-show(location.hash.slice(1));
-if(location.hash.slice(1) === 'opportunities' || location.hash.slice(1) === '') playChat();
-
-let chatTimeout = null;
+let chatTimeouts = [];
 function playChat() {
   const chat = document.getElementById('demo-chat');
   if(!chat) return;
   chat.innerHTML = '';
-  if(chatTimeout) clearTimeout(chatTimeout);
+  chatTimeouts.forEach(clearTimeout);
+  chatTimeouts = [];
   
   const steps = [
     { type: 'user', text: "I'm looking for a photo from my trip to Paris, but I don't remember where exactly.", delay: 800 },
@@ -507,7 +499,7 @@ function playChat() {
   let currentDelay = 0;
   steps.forEach(step => {
     currentDelay += step.delay;
-    const t = setTimeout(() => {
+    chatTimeouts.push(setTimeout(() => {
       if(step.type === 'ai') {
         const typingEl = document.createElement('div');
         typingEl.className = 'msg ai';
@@ -515,9 +507,9 @@ function playChat() {
         chat.appendChild(typingEl);
         chat.scrollTop = chat.scrollHeight;
         
-        setTimeout(() => {
+        chatTimeouts.push(setTimeout(() => {
           typingEl.innerHTML = step.text;
-        }, step.typing);
+        }, step.typing));
       } else {
         const msgEl = document.createElement('div');
         msgEl.className = `msg ${step.type}`;
@@ -525,10 +517,18 @@ function playChat() {
         chat.appendChild(msgEl);
         chat.scrollTop = chat.scrollHeight;
       }
-    }, currentDelay);
-    if(step === steps[steps.length-1]) chatTimeout = t;
+    }, currentDelay));
   });
 }
+
+document.querySelectorAll('[data-view],[data-go]').forEach(b=>b.addEventListener('click',()=>{ location.hash = b.dataset.view||b.dataset.go; }));
+window.addEventListener('hashchange',()=>{
+  const id = location.hash.slice(1);
+  show(id);
+  if(id === 'opportunities') playChat();
+});
+show(location.hash.slice(1));
+if(location.hash.slice(1) === 'opportunities' || location.hash.slice(1) === '') playChat();
 </script>
 </body>
 </html>
