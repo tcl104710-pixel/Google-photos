@@ -225,9 +225,13 @@ tr:last-child td{border-bottom:0}
           </div>
         </div>
         <div class="panel">
-          <h3>Where the feedback came from</h3>
-          <p class="sub" style="margin-bottom:16px">Records per platform</p>
-          <div class="bars" id="src-bars-mini"></div>
+          <h3>The core problem: the vocabulary gap</h3>
+          <p class="sub" style="margin-bottom:16px">Why users struggle even when they remember</p>
+          <div style="font-size:14.5px;color:var(--ink);line-height:1.6">
+            <p style="margin-bottom:12px">Human memory is <b>episodic and atmospheric</b>. People remember who they were with, the weather, and how they felt (e.g., <i>"raining in London with Sarah"</i>).</p>
+            <p style="margin-bottom:12px">Traditional search relies on <b>nouns and objects</b>. It expects users to guess the exact tags the AI assigned to the photo (e.g., <i>"umbrella, street, jacket"</i>).</p>
+            <p style="padding:12px;background:var(--red-soft);color:var(--red);border-radius:8px;font-weight:500;margin-top:16px;">This gap forces users to translate their rich memories into dry keywords. When they guess wrong, the photo remains lost.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -359,7 +363,7 @@ function bars(el, rows, total, color){
   ).join('');
 }
 const sources = [["Reddit",612],["Google Photos Help Community",438],["Google Play reviews",391],["App Store reviews",247],["YouTube comments",154]];
-bars('src-bars', sources, 1842); bars('src-bars-mini', sources, 1842);
+bars('src-bars', sources, 1842);
 bars('theme-bars', [
   ["Vague memory, can't describe it",312,"var(--red)"],["Wrong or merged faces",198],["Date or location wrong",176],
   ["Clutter buries results",164,"var(--amber)"],["Text inside photos",121],["Duplicates",88],["Other",65,"var(--muted)"]], 1124);
